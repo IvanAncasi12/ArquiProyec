@@ -1,0 +1,471 @@
+/*===============================
+13. wpo-checkout-page-style
+================================*/
+
+body .container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.check-form-area,
+.cartStatus {
+  padding: 40px;
+  box-shadow: 0px 5px 15px 0px rgba(62, 65, 159, 0.1);
+  padding-bottom: 20px;
+
+  @media(max-width:767px) {
+    padding: 20px;
+  }
+
+  table {
+    tr {
+      &:last-child {
+        td {
+          border-bottom: 0;
+
+        }
+      }
+    }
+
+    .MuiTableCell-body {
+      padding-left: 0;
+
+    }
+  }
+
+}
+
+.checkoutWrapper {
+  .checkoutCard {
+    margin-bottom: 20px;
+
+    button.collapseBtn {
+      color: #272424;
+      height: 50px;
+      font-size: 13px;
+      letter-spacing: 0;
+      display: block;
+      text-align: left;
+      text-transform: capitalize;
+      font-weight: 600;
+      border: 1px solid #dedddd;
+      border-radius: 0;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.03);
+      padding: 0 15px;
+
+      i {
+        float: right;
+        margin-top: 4px;
+        color: #8e8d8a;
+      }
+    }
+
+    .chCardBody {
+      padding: 0;
+
+      .formSelect {
+        div {
+          background: transparent;
+          height: 27px;
+          padding: 0;
+          line-height: 30px;
+          text-transform: capitalize;
+          font-weight: 400;
+          letter-spacing: 0;
+          color: #555;
+          font-size: 13px;
+        }
+      }
+
+      .checkBox {
+        span {
+          font-size: 14px;
+          letter-spacing: 0;
+        }
+      }
+
+      .note {
+        >div {
+          margin-top: 30px;
+        }
+
+        textarea {
+          height: 100px !important;
+          padding: 0;
+        }
+      }
+
+      .paymentMethod {
+        display: flex;
+        flex-direction: row;
+
+        label {
+          span {
+            font-size: 13px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      label {
+        font-size: 14px;
+        letter-spacing: 0;
+        font-weight: 500;
+        transform: scale(1);
+      }
+
+      input,
+      textarea {
+        height: 25px;
+        background: transparent;
+        padding-left: 10px;
+        font-weight: 500;
+        letter-spacing: 0;
+        color: #444444;
+        font-size: 13px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        color: #555555;
+      }
+    }
+  }
+
+  .cuponWrap {
+    .cuponForm {
+      margin-top: 10px;
+
+      button {
+        margin-top: 10px;
+        padding: 8px 25px;
+        background-color: #333;
+        color: #fff;
+
+        &:hover {
+          background-color: #b83806;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .cardType {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -5px 20px;
+
+    .cardItem {
+      margin: 5px;
+      flex-basis: calc(100% * (1 / 4) - 10px);
+      text-align: center;
+      border: 1px solid #ddd;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      cursor: pointer;
+
+      &.active {
+        background: #f9f9f9;
+      }
+    }
+
+    a {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      border-radius: 3px;
+    }
+  }
+}
+
+.ml-15 {
+  margin-left: 15px;
+}
+
+
+.formFooter {
+  button {
+    padding: 8px 25px;
+    background-color: #333;
+    color: #fff;
+
+    &:hover {
+      background-color: #b83806;
+      color: #fff;
+    }
+  }
+}
+
+
+
+.loginWrapper {
+  display: flex;
+  min-height: 100vh;
+  padding: 80px 0;
+  background: #f9f9f9;
+
+  .loginForm {
+    width: 500px;
+    max-width: 90%;
+    margin: auto;
+    background: #fff;
+    padding: 70px 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+
+    @media(max-width:445px) {
+      padding: 70px 15px;
+    }
+
+    >h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    >p {
+      font-size: 13px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 500;
+      color: #666666;
+    }
+
+    form {
+      .inputOutline {
+        label {
+          font-size: 16px;
+          background: #fff;
+          padding: 0 10px 0 0;
+        }
+
+        input {
+          font-size: 13px;
+          letter-spacing: 0;
+        }
+
+        input::-webkit-input-placeholder {
+          color: #888888;
+          opacity: 1;
+        }
+
+        input::-moz-placeholder {
+          color: #888888;
+          opacity: 1;
+        }
+
+        input:-ms-input-placeholder {
+          color: #888888;
+          opacity: 1;
+        }
+
+        input:-moz-placeholder {
+          color: #888888;
+          opacity: 1;
+        }
+      }
+
+      .errorMessage {
+        color: red;
+      }
+    }
+
+    .formAction {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+
+      label {
+        span {
+          font-size: 14px;
+
+          svg {
+            width: 1.2em;
+            height: 1.2em;
+          }
+        }
+      }
+
+      a {
+        display: block;
+        letter-spacing: 0;
+        font-size: 13px;
+        font-weight: 500;
+        color: #246fea;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    .formFooter {
+      margin-top: 20px;
+      display: flex;
+    }
+
+    .loginWithSocial {
+      display: flex;
+      justify-content: center;
+      width: 320px;
+      margin: 20px auto 0;
+
+      @media(max-width:445px) {
+        width: 185px;
+      }
+
+      button {
+        min-width: unset;
+        flex: 1 1;
+        display: block;
+        text-align: center;
+        background: #3b5998;
+        margin: 5px;
+        color: #fff;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        font-size: 14px;
+        padding: 4px 9px;
+
+        &.facebook {
+          background: #3b5998;
+        }
+
+        &.twitter {
+          background: #55acee;
+        }
+
+        &.linkedin {
+          background: #0077B5;
+        }
+      }
+    }
+
+    .noteHelp {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 13px;
+      letter-spacing: 0;
+      font-weight: 500;
+
+      a {
+        display: inline-block;
+        color: #0077b5;
+        margin-left: 10px;
+        font-size: 13px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.btn-area {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+
+  .admin {
+    border-right: 1px solid #c2b133;
+    padding-right: 10px;
+  }
+
+  .vendor {
+    border-right: 1px solid #c2b133;
+    padding-right: 10px;
+  }
+
+  .auth-btn {
+    margin: 0 5px;
+    color: #c2b133;
+    line-height: 16px;
+    cursor: pointer;
+    font-size: 15px;
+
+    @media(max-width:445px) {
+      font-size: 12px;
+    }
+  }
+}
+
+
+.chCardBody {
+  padding: 20px;
+}
+
+
+
+.cart-recived-section {
+  .order-top {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 5px 15px 0px rgba(62, 65, 159, 0.1);
+    flex-wrap: wrap;
+
+    @media(max-width:767px) {
+      padding: 20px;
+    }
+
+    h2 {
+      span {
+        display: block;
+        font-size: 18px;
+        color: #888;
+        margin-top: 10px;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+    }
+
+  }
+
+  .cartStatus {
+    padding: 40px;
+    box-shadow: 0px 5px 15px 0px rgba(62, 65, 159, 0.1);
+    margin-top: 40px;
+
+    @media(max-width:767px) {
+      padding: 20px;
+    }
+
+    .cartTotals {
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+
+      tr {
+        &:last-child {
+          td {
+            border-bottom: 0;
+
+          }
+        }
+      }
+    }
+
+    .MuiTableCell-body {
+      padding-left: 0;
+
+    }
+  }
+}
+
+.cBtnTheme {
+  background: $theme-primary-color;
+  background-color: $theme-primary-color !important;
+  color: #fff !important;
+}
+
+
+.Toastify__toast-body {
+  font-size: 16px;
+}

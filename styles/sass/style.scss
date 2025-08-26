@@ -1,0 +1,128 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+Theme Name:  Arkitek – Architecture & Interior HTML5 Template
+Version:        1.0.0
+-------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+1. General
+	1.1 Theme Reset Style
+	1.2 Global Elements
+
+2. header
+	2.1 topbar
+	2.2 navigation
+
+3. content
+	3.1 wpo-hero-slider
+	3.2 Arkitek-about-section
+	3.3 wpo-fun-fact-section
+	3.4 Arkitek-service-section
+	3.5 Arkitek-project-section 
+	3.6 wpo-pricing-section
+	3.7 Arkitek-testimonial-section 
+	3.8 Arkitek-cta-section 
+	3.9 wpo-blog-section
+
+4. wpo-footer
+
+5. Home-style-2
+   5.1 Arkitek-about-section-s2
+   5.2 Arkitek-about-section-s3
+   5.3 Arkitek-service-section-s2
+   5.4 Arkitek-project-section-s2
+   5.5 Arkitek-team-section
+   5.6 Arkitek-testimonial-section-s2
+   5.7 Arkitek-cta-section-s2
+   5.8 wpo-fun-fact-section-s2
+
+6. wpo-team-single
+
+7. wpo-shop-page
+
+8. wpo-shop-single-page
+
+9. wpo-checkout-page-style
+
+10. wpo-cart-page-style
+
+11. wpo-project-single
+
+12. wpo-service-single
+
+12. wpo-blog-pg-section
+
+14. wpo-blog-single-section
+
+15. wpo-contact-pg-section
+
+16. wpo-faq-page
+
+17. error-404-section
+
+
+----------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------
+1. General
+----------------------------------------------------------------*/
+
+// helpers
+@import "helpers/variables";
+@import "helpers/mixins";
+
+// base
+@import "base/base";
+
+
+// components
+@import "components/section-title";
+@import "components/buttons";
+@import "components/form";
+@import "components/social-links";
+@import "components/page-title";
+@import "components/blog-sidebar";
+@import "components/pagination";
+
+// layout
+@import "layout/header";
+@import "layout/hero-slider";
+@import "layout/footer";
+
+// page
+@import "page/home-default";
+@import "page/home-style-2";
+@import "page/home-style-3";
+
+@import "page/_team-single";
+
+@import "page/shop";
+@import "page/shop-single";
+
+@import "page/cart";
+
+@import "page/checkout";
+
+@import "page/project-single";
+
+@import "page/service-single";
+
+@import "page/_blog";
+
+@import "page/_blog-single";
+
+@import "page/contact";
+
+@import "page/_faq";
+
+
+@import "page/_error-404";
+
+
+
+

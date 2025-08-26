@@ -1,0 +1,113 @@
+/*--------------------------------------------------------------
+#9.1	shop page
+--------------------------------------------------------------*/
+.shop-section .shop-grids {
+    margin: 0 -15px;
+  }
+  
+  @media (max-width: 767px) {
+    .shop-section .shop-grids {
+      margin: 0 -7px;
+    }
+  }
+  
+  .shop-section .grid {
+    width: calc(33.33% - 30px);
+    float: left;
+    margin: 0 15px 30px;
+  }
+  
+  @media (max-width: 991px) {
+    .shop-section .grid {
+      width: calc(50% - 30px);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .shop-section .grid {
+      width: calc(50% - 15px);
+      margin: 0 7px 15px;
+    }
+  }
+  
+  @media (max-width: 550px) {
+    .shop-section .grid {
+      width: calc(100% - 15px);
+      float: none;
+    }
+  }
+  
+  .shop-section .details {
+    background-color: rgba(8, 106, 216, 0.05);
+    text-align: center;
+    padding: 35px 15px;
+  }
+  
+  .shop-section .details h3 {
+    font-size: 20px;
+    margin: 0 0 0.5em;
+    font-weight: 700;
+  }
+  
+  @media (max-width: 991px) {
+    .shop-section .details h3 {
+      font-size: 18px;
+    }
+  }
+  
+  .shop-section .details h3 a {
+    color: #202a41;
+  }
+  
+  .shop-section .details h3 a:hover {
+    color: #e3b576;
+  }
+  
+  .shop-section .details del {
+    color: #788390;
+  }
+  
+  .shop-section .details del + span {
+    display: inline-block;
+    padding-left: 20px;
+  }
+  
+  .shop-section .add-to-cart {
+    margin-top: 20px;
+  }
+  
+  .shop-section .add-to-cart a {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #e3b576;
+    padding: 12px 20px;
+    border: 2px solid #e3b576;
+    display: inline-block;
+    border-radius: 50px;
+  }
+  
+  @media (max-width: 767px) {
+    .shop-section .add-to-cart a {
+      font-size: 12px;
+      font-size: 0.75rem;
+      padding: 8px 18px;
+    }
+  }
+  
+  .shop-section .add-to-cart a:hover {
+    background-color: #e3b576;
+    color: #fff;
+  }
+  
+  .shop-section .add-to-cart a i {
+    font-size: 15px;
+    font-size: 0.9375rem;
+    display: inline-block;
+    padding-left: 5px;
+  }
+  
+  .shop-section .grid:hover .add-to-cart a {
+    background-color: #e3b576;
+    color: #fff;
+  }

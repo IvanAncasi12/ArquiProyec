@@ -1,0 +1,1211 @@
+/*--------------------------------------------------------------
+5. Home-style-2
+--------------------------------------------------------------*/
+
+/*5.1 Arkitek-about-section-s2 */
+.Arkitek-about-section-s2,
+.Arkitek-about-section-s3 {
+    background: #F8F8F8;
+
+    .about-left-item {
+        margin-right: 50px;
+
+        @media (max-width:1199px) {
+            margin-right: 0;
+        }
+    }
+
+    .wpo-section-title {
+        text-align: left;
+
+        @media (max-width:1199px) {
+            margin-bottom: 40px;
+        }
+
+        span {
+            @media (max-width:1199px) {
+                line-height: 24px;
+            }
+        }
+
+        h2 {
+            font-size: 70px;
+            font-weight: 400;
+            line-height: 100px;
+
+            @media (max-width:1399px) {
+                font-size: 62px;
+                line-height: 80px;
+            }
+
+            @media (max-width:1199px) {
+                font-size: 48px;
+                line-height: 63px;
+                margin-bottom: 10px;
+            }
+
+            @media (max-width:575px) {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            &::before {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        p {
+            @media (max-width:575px) {
+                font-size: 15px;
+            }
+        }
+
+    }
+
+    .left-btn {
+        display: flex;
+        align-items: center;
+
+        @media (max-width:575px) {
+            display: block;
+            ;
+        }
+
+        .theme-btn {
+            background: $theme-primary-color;
+            color: $white;
+
+            @media (max-width:1199px) {
+                padding: 15px 15px;
+            }
+
+            &::before {
+                border: 1px dashed #D9916A;
+            }
+
+            &:hover {
+                color: $dark-gray;
+            }
+        }
+
+        .call {
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+
+            @media (max-width:1199px) {
+                margin-left: 30px;
+            }
+
+            @media (max-width:575px) {
+                margin: 0;
+                margin-top: 20px;
+            }
+
+            .icon {
+                width: 35px;
+                height: 35px;
+
+                @media (max-width:575px) {
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+
+            .text {
+                padding-left: 15px;
+
+                h5 {
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 30px;
+                    color: $text-light-color;
+                    margin-bottom: 0;
+                    font-family: $base-font;
+                }
+
+                span {
+                    margin-bottom: 0;
+                    font-family: $heading-font;
+                    font-weight: 400;
+                    font-size: 22px;
+                    line-height: 40px;
+                    color: $dark-gray;
+
+                    @media (max-width:575px) {
+                        font-size: 15px;
+                        line-height: 25px;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    .about-right-item {
+        position: relative;
+        padding: 120px 0;
+
+        @media (max-width:1399px) {
+            padding: 100px 0;
+        }
+
+        @media (max-width:576px) {
+            padding: 60px 0;
+            padding-bottom: 0;
+        }
+    }
+
+    .right-image-1 {
+        background: $white;
+        padding: 15px;
+        width: 600px;
+        height: 660px;
+
+        @media (max-width:1499px) {
+            width: 500px;
+            height: 560px;
+        }
+
+        @media (max-width:1399px) {
+            width: 455px;
+            height: 500px;
+        }
+
+        @media (max-width:1199px) {
+            width: 400px;
+            height: 440px;
+        }
+
+        @media (max-width:991px) {
+            width: 450px;
+            height: 100%;
+        }
+
+        @media (max-width:767px) {
+            width: 400px;
+        }
+
+        @media (max-width:575px) {
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .right-image-2 {
+        background: $white;
+        padding: 15px;
+        width: 380px;
+        height: 510px;
+        position: absolute;
+        right: -190px;
+        bottom: 0;
+        z-index: 1;
+
+        @media (max-width:1699px) {
+            right: -140px;
+        }
+
+        @media (max-width:1499px) {
+            right: -10px;
+            width: 280px;
+            height: 370px;
+        }
+
+        @media (max-width:991px) {
+            right: 0px;
+            width: 300px;
+            height: auto;
+        }
+
+        @media (max-width:767px) {
+            width: 250px;
+        }
+
+        @media (max-width:575px) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .right-text {
+        position: absolute;
+        right: -105px;
+        top: 0;
+
+        @media (max-width:1499px) {
+            right: -10px;
+        }
+
+        @media (max-width:991px) {
+            right: 70px;
+            top: 20px;
+        }
+
+        @media (max-width:991px) {
+            right: 10px;
+            top: 40px;
+        }
+
+        @media (max-width:576px) {
+            right: 0;
+            top: 0;
+        }
+
+        @media (max-width:399px) {
+            top: 60px;
+        }
+
+        .info {
+            background: $theme-primary-color;
+            height: 300px;
+            width: 300px;
+            border-radius: 150px;
+            outline: 1px solid #FFFFFF;
+            outline-offset: -20px;
+            display: inline-block;
+            text-align: center;
+            padding: 50px 40px;
+
+            @media (max-width:1399px) {
+                height: 280px;
+                width: 280px;
+            }
+
+            @media (max-width:1199px) {
+                padding: 20px 25px;
+                height: 250px;
+                width: 250px;
+
+            }
+
+            @media (max-width:767px) {
+                padding-top: 40px;
+            }
+
+            @media (max-width:399px) {
+                padding: 10px 20px;
+                padding-top: 30px;
+                height: 200px;
+                width: 200px;
+                outline-offset: -10px;
+            }
+
+            h3 {
+                font-weight: 400;
+                font-size: 50px;
+                margin: 0 auto;
+                text-align: center;
+                color: $white;
+                font-family: $heading-font;
+                font-weight: 400;
+
+                @media (max-width:1399px) {
+                    font-size: 45px;
+                }
+
+                span {
+                    font-size: 100px;
+                    line-height: 100px;
+
+                    @media (max-width:1399px) {
+                        font-size: 95px;
+                    }
+
+                    @media (max-width:767px) {
+                        font-size: 60px;
+                        line-height: 80px;
+                    }
+                }
+            }
+
+            p {
+                font-family: $heading-font;
+                font-weight: 400;
+                font-size: 25px;
+                line-height: 40px;
+                color: #F9F9F9;
+
+                @media (max-width:1399px) {
+                    font-size: 22px;
+                    line-height: 30px;
+                }
+
+                @media (max-width:399px) {
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+            }
+        }
+    }
+
+}
+
+/*5.2 Arkitek-about-section-s3 */
+.Arkitek-about-section-s3 {
+    background: transparent;
+
+    .about-right-item {
+        padding: 0;
+
+        @media (max-width:1499px) {
+            margin-left: 0;
+        }
+
+        .right-image-1 {
+            width: auto;
+            height: auto;
+            position: relative;
+            background: transparent;
+            z-index: 1;
+
+            &::before {
+                position: absolute;
+                content: '';
+                left: 50%;
+                top: 55%;
+                transform: translate(-50%, -50%);
+                width: 85%;
+                height: 88%;
+                z-index: -1;
+                border: 10px solid $theme-primary-color-s2
+            }
+        }
+
+        .right-text {
+            z-index: 1;
+            top: 300px;
+
+            @media (max-width:1499px) {
+                margin-right: -97px;
+            }
+
+            @media (max-width:1399px) {
+                margin-right: -68px;
+            }
+
+            @media (max-width:1199px) {
+                margin-right: 0;
+            }
+
+            @media (max-width:991px) {
+                right: -40px;
+            }
+
+            @media (max-width:575px) {
+                right: 0px;
+            }
+
+            @media (max-width:399px) {
+                top: 200px;
+            }
+
+            .info {
+                outline: 1px solid transparent;
+                border-radius: 20px;
+                background: transparent;
+                position: relative;
+                transform: rotate(45deg);
+
+                @media (max-width:1199px) {
+                    height: 200px;
+                    width: 200px;
+                }
+
+                @media (max-width:575px) {
+                    height: 150px;
+                    width: 150px;
+                }
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: $theme-primary-color;
+                    z-index: -1;
+                    border-radius: 20px;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 90%;
+                    height: 90%;
+                    z-index: 1;
+                    border: 1px solid $white;
+                    border-radius: 15px;
+                }
+
+                h3 {
+                    transform: rotate(315deg);
+                    margin-left: -69px;
+                    margin-top: 0;
+
+                    @media (max-width:575px) {
+                        font-size: 30px;
+                        margin-left: -25px;
+                        margin-top: -20px;
+                    }
+
+                    span {
+                        @media (max-width:1199px) {
+                            font-size: 64px;
+                        }
+
+                        @media (max-width:575px) {
+                            font-size: 40px;
+                        }
+                    }
+                }
+
+                p {
+                    transform: rotate(315deg);
+                    margin-top: -33px;
+                    margin-right: -41px;
+
+                    @media (max-width:1199px) {
+                        font-size: 19px;
+                    }
+
+                    @media (max-width:575px) {
+                        font-size: 15px;
+                        line-height: 20px;
+                        margin-top: -35px;
+                        margin-right: -35px;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+/*5.3 Arkitek-service-section-s2*/
+.Arkitek-service-section-s2 {
+    padding: 120px 0;
+    padding-bottom: 60px;
+
+    @media (max-width:1199px) {
+        padding-bottom: 90px;
+    }
+
+    @media (max-width:991px) {
+        padding-top: 90px;
+        padding-bottom: 60px;
+    }
+
+    @media (max-width:767px) {
+        padding-top: 80px;
+        padding-bottom: 50px;
+    }
+
+
+    .service-left-item {
+        margin-bottom: 60px;
+        margin-right: 30px;
+
+        @media (max-width:1199px) {
+            margin-right: 0px;
+            margin-bottom: 30px;
+        }
+
+        &:nth-child(3) {
+            margin-right: 0;
+        }
+
+        &:nth-child(6) {
+            margin-right: 0;
+        }
+
+        @media (max-width:399px) {
+            display: block;
+            text-align: center;
+        }
+
+        .icon {
+            @media (max-width:399px) {
+                margin: 0 auto;
+                margin-bottom: 15px;
+                width: 60px;
+            }
+        }
+
+        .text {
+            @media (max-width:399px) {
+                padding-left: 0;
+                text-align: center;
+            }
+        }
+
+    }
+
+    .service-left-item .text h2 a {
+        @media (max-width:1399px) {
+            font-size: 29px;
+        }
+
+        @media (max-width:1199px) {
+            font-size: 26px;
+        }
+
+    }
+
+}
+
+/*5.4 Arkitek-project-section-s2 */
+.Arkitek-project-section-s2 {
+
+    .wpo-section-title {
+        text-align: center;
+
+        h2 {
+            &::before {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50%;
+
+            }
+
+            &::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 40%;
+            }
+        }
+    }
+
+    .project-wrap {
+        margin-top: 35px; 
+    }
+
+    .project-slider {
+
+
+
+        .owl-item.active.center {
+            margin-top: 0;
+
+            @media (max-width:1399px) {
+                margin-top: 0;
+            }
+
+            @media (max-width:1199px) {
+                margin-top: 0;
+            }
+
+            @media (max-width:767px) {
+                margin-top: 0;
+            }
+
+            @media (max-width:574px) {
+                margin-top: 0;
+            }
+        }
+
+
+
+
+    }
+}
+
+/*5.5 Arkitek-team-section */
+.Arkitek-team-section {
+    padding-bottom: 0;
+    position: relative;
+    left: 65%;
+    transform: translateX(-50%);
+
+    @media (max-width:1749px) {
+        left: 62%;
+    }
+
+    @media (max-width:1699px) {
+        left: 60%;
+    }
+
+    @media (max-width:1649px) {
+        left: 58%;
+    }
+
+    @media (max-width:1549px) {
+        left: 57%;
+    }
+
+    @media (max-width:1449px) {
+        left: 55%;
+    }
+
+    @media (max-width:1449px) {
+        left: 55%;
+    }
+
+    @media (max-width:1399px) {
+        left: 58%;
+    }
+
+    @media (max-width:1349px) {
+        left: 55%;
+    }
+
+    @media (max-width:1199px) {
+        left: 58%;
+    }
+
+    @media (max-width:1149px) {
+        left: 55%;
+    }
+
+    @media (max-width:767px) {
+        position: unset;
+        transform: none;
+    }
+
+    .wpo-section-title {
+        text-align: left;
+
+        @media (max-width:991px) {
+            text-align: center;
+        }
+
+        h2 {
+
+            &::before {
+                left: 0;
+                transform: unset;
+                width: 32%;
+
+                @media (max-width:991px) {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            &::after {
+                left: 0;
+                transform: unset;
+                width: 22%;
+
+                @media (max-width:991px) {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+
+
+    .item {
+        position: relative;
+
+        .image {
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .text {
+            background: $white;
+            text-align: center;
+            padding: 16px 0;
+            padding-bottom: 18px;
+            position: absolute;
+            width: 280px;
+            height: 100px;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            transition: all .3s ease-in-out;
+            overflow: hidden;
+
+            h2 {
+                margin-bottom: 0;
+
+                a {
+                    font-family: $heading-font;
+                    font-weight: 400;
+                    font-size: 25px;
+                    line-height: 40px;
+                    text-align: center;
+                    color: $heading-color;
+                    display: inline-block;
+                    transition: all .3s ease-in-out;
+                }
+
+                &:hover {
+
+                    a {
+                        color: $theme-primary-color;
+                    }
+                }
+            }
+
+            span {
+                font-family: $base-font-s2;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 30px;
+                text-align: center;
+                text-transform: uppercase;
+                display: inline-block;
+                color: $theme-primary-color-s2;
+            }
+
+            .icon {
+                list-style: none;
+                transition: all .3s ease-in-out;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 50%;
+                top: 100%;
+                transform: translateX(-50%);
+
+                li {
+                    display: inline-block;
+                    border: 1px solid $border-color-s3;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    margin-right: 15px;
+                    cursor: pointer;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    a {
+                        color: #6F6F6F;
+                        transition: all .3s ease-in-out;
+
+                        i {
+                            &::before {
+                                font-size: 18px;
+                                line-height: 38px;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        border: 1px solid $theme-primary-color;
+
+                        a {
+                            color: $theme-primary-color;
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        &:hover {
+
+            .text {
+                height: 160px;
+
+                .icon {
+                    top: 60%;
+
+                }
+            }
+        }
+    }
+
+
+    .slick-slider {
+        margin: 0 -10px;
+
+        .slick-slide {
+            padding: 0 10px;
+
+            @media(max-width:767px) {
+                padding: 0;
+            }
+        }
+    }
+
+
+    // slider controls
+    .slick-prev,
+    .slick-next {
+        background-color: transparentize($theme-primary-color, 0.3);
+        width: 45px;
+        height: 45px;
+        z-index: 10;
+        @include rounded-border(50%);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0);
+        transition: all .3s;
+        border: 2px solid $theme-primary-color;
+
+        &:hover {
+            background-color: $theme-primary-color;
+        }
+    }
+
+    .slick-prev {
+        left: 30px;
+
+        &:before {
+            font-family: "themify";
+            content: "\e629";
+            opacity: 1;
+        }
+    }
+
+    .slick-next {
+        right: 16%;
+
+        @include media-query(1750px) {
+            right: 13%;
+        }
+        @include media-query(1500px) {
+            right: 10%;
+        }
+        @include media-query(991px) {
+            right: 8%;
+        }
+        @include media-query(767px) {
+            right: 6%;
+        }
+
+        &:before {
+            font-family: "themify";
+            content: "\e628";
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+
+        .slick-next {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .slick-prev {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    
+
+    .team-slider {
+        margin-top: 35px;
+    }
+
+}
+
+/*5.6 Arkitek-testimonial-section-s2*/
+.Arkitek-testimonial-section-s2 {
+    padding: 120px 0;
+
+    @media (max-width:991px) {
+        padding: 90px 0;
+    }
+
+    @media (max-width:767px) {
+        padding: 80px 0;
+    }
+
+    .testimonial-left-item {
+        @media (max-width:767px) {
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+        }
+
+        @media (max-width:575px) {
+            width: 170px;
+            height: 170px;
+        }
+
+        @media (max-width:399px) {
+            width: 170px;
+            height: 170px;
+        }
+
+        .image {
+            width: 170px;
+            height: 170px;
+            margin: 0;
+            margin: 20px;
+            margin-bottom: 0;
+
+            @media (max-width:767px) {
+                margin: 0;
+                margin-top: 23px;
+            }
+
+        }
+    }
+
+    .testimonial-item {
+        position: relative;
+        margin: 0;
+        margin-top: 50px;
+
+        .icon {
+            position: absolute;
+            right: 113px;
+            top: -70px;
+
+            @media (max-width:1199px) {
+                right: 43px;
+                top: -45px;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 25px;
+            line-height: 50px;
+            padding-right: 75px;
+
+            @media (max-width:1399px) {
+                padding-right: 0;
+            }
+
+            @media (max-width:1199px) {
+                font-size: 21px;
+                line-height: 40px;
+            }
+        }
+
+        span {
+            @media (max-width:1199px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    .slick-dots{
+        bottom: -60px;
+    }
+    .slick-dots li button:before {
+        font-size: 13px;
+        color: $theme-primary-color;
+    }
+
+    .slick-slider {
+        margin: 0 -10px;
+
+        .slick-slide {
+            padding: 0 10px;
+
+            @media(max-width:767px) {
+                padding: 0;
+            }
+        }
+    }
+
+}
+
+/*5.7 Arkitek-cta-section-s2 */
+.Arkitek-cta-section-s2 {
+    z-index: 0;
+    overflow: hidden;
+    padding: 100px 0;
+
+    @media (max-width:767px) {
+        padding: 80px 0;
+    }
+
+    &::before {
+        left: 50%;
+        width: 50%;
+        transform: translateX(-50%);
+        clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+
+        @media (max-width:1399px) {
+            width: 60%;
+        }
+
+        @media (max-width:1199px) {
+            width: 70%;
+        }
+
+        @media (max-width:991px) {
+            width: 80%;
+        }
+
+        @media (max-width:767px) {
+            width: 100%;
+            clip-path: none;
+        }
+
+    }
+
+    .cta-left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -11;
+        height: 499px;
+        width: 719px;
+
+        @media (max-width:1399px) {
+            left: -229px;
+        }
+
+        @media (max-width:1199px) {
+            left: -330px;
+        }
+
+        @media (max-width:991px) {
+            width: 670px;
+        }
+
+        @media (max-width:767px) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .cta-right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -11;
+        height: 499px;
+        width: 719px;
+
+        @media (max-width:1399px) {
+            right: -229px;
+        }
+
+        @media (max-width:1199px) {
+            right: -335px;
+        }
+
+        @media (max-width:991px) {
+            width: 670px;
+        }
+
+        @media (max-width:767px) {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+}
+
+/*5.8 wpo-fun-fact-section-s2 */
+
+.wpo-fun-fact-section-s2 {
+    margin-top: -172px;
+
+    @include media-query(1199px) {
+        margin-top: -149px;
+    }
+
+    @include media-query(991px) {
+        margin-top: 0px;
+        padding-top: 90px;
+    }
+
+    @include media-query(767px) {
+        padding-top: 80px;
+    }
+
+    .wpo-fun-fact-grids {
+        border: 1px dashed transparent;
+        position: relative;
+
+        @include media-query(991px) {
+            padding: 0;
+        }
+
+        .bg-shape {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: block;
+
+            @include media-query(1399px) {
+                top: 25px;
+            }
+
+            @include media-query(991px) {
+                position: unset;
+                display: none;
+            }
+        }
+    }
+
+
+    .wpo-fun-fact-grids .grid {
+        border-top: 1px dashed transparent;
+        border-bottom: 1px dashed transparent;
+        border-left: 1px dashed transparent;
+
+        @include media-query(991px) {
+            border-top: 1px dashed $border-color;
+            border-bottom: 1px dashed $border-color;
+            border-left: 1px dashed $border-color;
+        }
+
+        &:nth-child(1) {
+            @include media-query(991px) {}
+        }
+
+        &:nth-child(4) {
+            border-right: 1px dashed transparent;
+
+            @include media-query(991px) {
+                border-right: 1px dashed $border-color;
+            }
+        }
+
+        &:nth-child(2) {
+            @include media-query(991px) {}
+        }
+
+        @include media-query(991px) {
+            width: 50%;
+        }
+
+        @include media-query(767px) {
+            width: 100%;
+            float: none;
+        }
+    }
+
+    .grid h3+p {
+        @include media-query(1199px) {
+            font-size: 17px;
+            line-height: 15px;
+        }
+    }
+}

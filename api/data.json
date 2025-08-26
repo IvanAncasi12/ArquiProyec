@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "proImg": "/images/product/1.jpg",
+    "title": "Bev Accent Chair",
+    "slug": "Bev-Accent-Chair",
+    "price": "340.00",
+    "delPrice": "380.00",
+    "brand":"Gucci",
+    "size":"Xl"
+  },
+  {
+    "id": 2,
+    "proImg": "/images/product/2.jpg",
+    "title": "Black Timber Chairs",
+    "slug": "Black-Timber-Chairs",
+    "price": "65.00",
+    "delPrice": "85.00",
+    "brand":"Gucci",
+    "size":"XXl"
+  },
+  {
+    "id": 3,
+    "proImg": "/images/product/3.jpg",
+    "title": "Marble Side Table",
+    "slug": "Marble-Side-Table",
+    "price": "285.00",
+    "delPrice": "300.00",
+    "brand":"Gucci",
+    "size":"L"
+  },
+  {
+    "id": 4,
+    "proImg": "/images/product/4.jpg",
+    "title": "Polygonal Vase",
+    "slug": "Polygonal-Vase",
+    "price": "176.00",
+    "delPrice": "178.00",
+    "brand":"Gucci",
+    "size":"M"
+  },
+  {
+    "id": 5,
+    "proImg": "/images/product/5.jpg",
+    "title": "Steel Computer Chair",
+    "slug": "Steel-Computer-Chair",
+    "price": "125.00",
+    "delPrice": "130.00",
+    "brand":"Gucci",
+    "size":"XXl"
+  },
+  {
+    "id": 6,
+    "proImg": "/images/product/6.jpg",
+    "title": "Wood Annabel Chair",
+    "slug": "Wood-Annabel-Chair",
+    "price": "548.00",
+    "delPrice": "600.00",
+    "brand":"Gucci",
+    "size":"Xl"
+  }
+]

@@ -1,0 +1,93 @@
+.wpo-faq-section {
+
+    .wpo-benefits-item {
+        border: 0;
+        margin-top: 40px;
+
+
+        .accordion-body {
+            padding: 30px 20px;
+
+            p {
+                margin-bottom: 0px;
+            }
+        }
+
+        .MuiAccordionDetails-root {
+            padding: 30px 20px;
+
+            p{
+                font-size: 16px;
+            }
+        }
+
+        .MuiPaper-root {
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .MuiButtonBase-root {
+            padding: 0;
+        }
+
+        .MuiAccordionSummary-content {
+            border: 0;
+            border-radius: 0;
+            padding-left: 0;
+            padding-right: 0;
+            color: $white;
+            text-align: left;
+            font-family: $base-font;
+            font-weight: 600;
+            padding: 30px 20px;
+            background: #F9F9F9;
+            margin: 0;
+            width: 100%;
+            justify-content: space-between;
+
+            p {
+                font-size: 20px;
+            }
+
+            &::after {
+                background: none;
+                font-family: "themify";
+                content: "\e61a";
+                font-size: 15px;
+                transform: rotate(0deg);
+                font-weight: 700;
+                color: $dark-gray;
+            }
+
+
+            &.Mui-expanded {
+                background: $dark-gray;
+
+                p {
+                    color: $white;
+                }
+
+                &::after {
+                    content: "\e622";
+                    color: $white;
+                }
+            }
+
+            &:focus {
+                box-shadow: none;
+                outline: none;
+                border-color: #DCDCDC;
+
+            }
+
+
+        }
+
+        .accordion-collapse {
+            border: 0;
+        }
+    }
+
+    .accordion-button {
+        background: transparent;
+    }
+}

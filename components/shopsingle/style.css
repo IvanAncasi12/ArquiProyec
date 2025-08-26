@@ -1,0 +1,160 @@
+.shop-item.single .shop-info > h3 {
+	color: #002222;
+	margin-bottom: 17px;
+}
+
+.rating {
+	display: block;
+}
+.rating li {
+	display: inline-block;
+	margin-right: 4px;
+}
+.rating li i {
+	display: inline-block;
+	color: #fd9f26;
+	font-size: 16px;
+}
+.shop-item{
+	margin-bottom: 50px;
+}
+
+.shop-item.single .shop-info > .rating {
+	float: left;
+}
+.shop-item.single .shop-info .review_count {
+	float: left;
+	color: #777777;
+	font-size: 14px;
+	margin-left: 20px;
+	font-weight: 500;
+	margin-top: 2px;
+}
+.shop-item.single .shop-info > .price-num {
+	display: block;
+	width: 100%;
+	color: #e3b576;
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 20px;
+	margin-bottom: 34px;
+}
+.shop-item.single .shop-info p {
+	margin-bottom: 40px;
+}
+.handle-counter input {
+	width: 45px;
+	height: 50px;
+	background-color: #eeeeee;
+	border:0;
+	text-align: center;
+	font-weight: 500;
+	float: left;
+}
+.lft-cntrs {
+	width: 35px;
+	height: 35px;
+	background-color: #eeeeee;
+	border-left: 1px solid #e3dddd;
+	position: absolute;
+    right: 0;
+}
+.lft-cntrs .btn {
+	padding: 0;
+	opacity: 1;
+	width: 100%;
+	background-color: inherit;
+	position: relative;
+	outline: none;
+	cursor: pointer;
+	color: #222;
+	line-height: 1;
+}
+.lft-cntrs .counter-minus.btn {
+	top: -9px;
+}
+.lft-cntrs .counter-plus.btn {
+	top: 0px;
+}
+.lft-cntrs .btn.focus, .lft-cntrs .btn:focus {
+	-webkit-box-shadow: inherit;
+	-moz-box-shadow: inherit;
+	-ms-box-shadow: inherit;
+	-o-box-shadow: inherit;
+	box-shadow: inherit;
+	outline: none;
+}
+.shop-item.single .shop-info .btn-style2 {
+	border:0;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 35px;
+	transition: all .3s;
+}
+.shop-item.single .shop-info .des p:first-child{
+	margin-bottom: 20px;
+}
+
+.shop-item.single .shop-info .btn-style2:focus{
+	outline: none;
+}
+
+.shop-item.single .shop-info .btn-style2:hover{
+	background-color: #e3b576!important;
+	color: #fff;
+}
+
+/* ======================== COMMENTS FORM SECTION ======================= */
+
+.comment-form {
+	padding-top: 28px;
+}
+.comment-form > h3 {
+	color: #222222;
+	font-size: 36px;
+	margin-bottom: 30px;
+}
+.form-field {
+	width: 100%;
+	margin-bottom: 20px;
+	position: relative;
+}
+.form-field input,
+.form-field textarea {
+	width: 100%;
+	height: 60px;
+	color: #aaaaaa;
+	font-size: 14px;
+	border:1px solid #dddddd;
+	border-radius: 5px;
+}
+.form-field input {
+	height: 60px;
+	padding: 0 38px;
+}
+.form-field textarea {
+	height: 186px;
+	padding: 25px 38px;
+	resize: none;
+}
+.form-submit {
+	margin-top: 19px;
+}
+.form-submit .btn-style2 {
+	border:0;
+}
+
+
+.form-submit .btn-style2:focus{
+	outline: none;
+}
+
+.add-review-sec .theme-btn{
+  background: #e3b576;
+  color: #fff;
+}
+
+
+.handle-counter{
+  position: relative;
+}

@@ -1,0 +1,49 @@
+/*---------------------------
+	Fonts
+----------------------------*/
+
+@font-face {
+  font-family: 'titillium';
+  font-weight: 400;
+  font-style: normal;
+  src: local('titilliumregular'),
+    url('../../../fonts/text-font/titillium-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'titillium';
+  font-weight: 300;
+  font-style: normal;
+  src: local('titilliumthin'),
+    url('../../../fonts/text-font/titillium-thin-webfont.woff') format('woff');
+}
+
+
+// fonts
+$base-font-size: 15;
+$base-font:'Raleway', sans-serif;
+$base-font-s2:'Josefin Sans', sans-serif;
+$heading-font: 'titillium';
+
+
+
+// color
+$dark-gray: #262626; //
+$body-color: #687693;
+$white: #fff;
+$light: #6E8AA5; //
+$black: #000;
+$small-black: #30465C; //
+$cyan: #848892;
+
+$theme-primary-color: #D9916A; //
+$theme-primary-color-s2: #779A65; //
+$body-bg-color: #fff;
+$section-bg-color: #1E2E3E; //
+$section-bg-color-s2: #f9f9f9; //
+$text-color:#323232; //
+$text-light-color: #525252; //
+$heading-color: $dark-gray;
+$border-color: #DADADA; //
+$border-color-s2: #767676; //
+$border-color-s3: #AFBDA8; //
