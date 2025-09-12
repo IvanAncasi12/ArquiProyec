@@ -102,9 +102,7 @@ const Footer = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col col-xs-12">
-                            <p className="copyright"> Copyright &copy; 2023  Arkitek by <Link onClick={ClickHandler} href="/home">wpOceans</Link>. All
-                                Rights Reserved.</p>
-                                <p>© 2025 Universidad Pública de El Alto. Todos los derechos reservados.</p>
+                            <p className="copyright">&copy;2025 Universidad Pública de El Alto. Todos los derechos reservados <Link onClick={ClickHandler} href="/home"> | U-TIC</Link>.</p>
                         </div>
                     </div>
                 </div>

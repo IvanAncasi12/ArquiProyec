@@ -100,9 +100,7 @@ const ServiceSection = (props) => {
                     <div className="service-title-left">
                         <div className="wpo-section-title">
                             <h2>Ofertas Académicas</h2>
-                            <p>Lectus suspendisse mi massa et mollis diam urna interdum consequat.
-                                Libero quis non odio sed convallis cursus fames vitae volutpat.
-                                At congue viverra integer est. Quam convallis dignissim cras sit morbi diam.</p>
+                            <p>¡Bienvenida a la Carrera de Arquitectura de la UPEA! Te damos la más cordial bienvenida a esta emocionante casa superior de estudios. La carrera de Arquitectura te ofrece una sólida base teórica y práctica para convertirte en un profesional capaz de diseñar y proyectar espacios funcionales, estéticos y sostenibles. Te invitamos a explorar este nuevo mundo lleno de creatividad, innovación y responsabilidad social.</p>
                            {/*  <Link onClick={ClickHandler} href="/service">See All Services....</Link> */}
                         </div>
 

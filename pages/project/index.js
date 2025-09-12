@@ -10,7 +10,7 @@ const ProjectPage =() => {
     return(
         <Fragment>
             <Navbar hclass={'wpo-header-style-2'}/>
-            <PageTitle pageTitle={'Projects'} pagesub={'Project'}/> 
+            <PageTitle pageTitle={'Proyectos'} pagesub={'Proyectos'}/> 
             <ProjectSection/>
             <Footer/>
             <Scrollbar/>

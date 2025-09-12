@@ -27,7 +27,7 @@
             font-size: 16px;
             line-height: 30px;
             text-transform: uppercase;
-            color: #D9916A;
+            color: #70097e;
         }
 
         h2 {
@@ -75,18 +75,18 @@
         }
 
         .theme-btn {
-            background: #D9916A;
+            background: #70097e;
             color: #fff;
             border: 1px solid transparent;
 
             &::before {
-                border: 1px solid #D9916A;
+                border: 1px solid #70097e;
             }
 
             &:hover {
                 background: $white;
-                color: #D9916A;
-                border: 1px solid #D9916A;
+                color: #70097e;
+                border: 1px solid #70097e;
 
                 &::before {
                     border: 1px solid transparent;
@@ -116,12 +116,12 @@
         .info {
             width: 440px;
             height: 170px;
-            background: #D9916A;
+            background: #70097e;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 20px;
-            outline: 2px solid #F3AA83;
+            outline: 2px solid #7c7c7c;
             outline-offset: -15px;
             position: absolute;
             top: 95px;
@@ -412,7 +412,7 @@
             font-size: 16px;
             line-height: 25px;
             text-transform: uppercase;
-            color: #D9916A;
+            color: #70097e;
             margin-top: 25px;
             display: block;
         }
@@ -457,7 +457,7 @@
 
         .owl-dot.active {
             width: 40px;
-            background: #D9916A;
+            background: #70097e;
             border-radius: 6px;
             transition: all .3s ease-in-out;
         }
@@ -520,7 +520,7 @@
 
                 &:hover {
                     a {
-                        color: #D9916A;
+                        color: #70097e;
                     }
                 }
             }
@@ -558,7 +558,7 @@
             font-size: 16px;
             line-height: 30px;
             text-transform: uppercase;
-            color: #D9916A;
+            color: #70097e;
         }
 
         h2 {
@@ -592,18 +592,18 @@
         }
 
         .theme-btn {
-            background: #D9916A;
+            background: #70097e;
             color: #fff;
             border: 1px solid transparent;
 
             &::before {
-                border: 1px solid #D9916A;
+                border: 1px solid #70097e;
             }
 
             &:hover {
                 background: $white;
-                color: #D9916A;
-                border: 1px solid #D9916A;
+                color: #70097e;
+                border: 1px solid #70097e;
 
                 &::before {
                     border: 1px solid transparent;
@@ -733,7 +733,7 @@
             bottom: -20px;
             width: 347px;
             height: 496px;
-            background: #D9916A;
+            background: #70097e;
             z-index: -1;
 
             @include media-query(991px) {
@@ -1078,7 +1078,7 @@
 
         &:hover {
             .image {
-                border: 5px solid #D9916A;
+                border: 5px solid #70097e;
 
                 &::before {
                     background: rgba(217, 145, 106, 0.2);
@@ -1160,7 +1160,7 @@
                     top: -3px;
                     width: 190px;
                     height: 240px;
-                    background: #D9916A;
+                    background: #70097e;
                     z-index: -1;
                     transition: all .3s ease-in-out;
 

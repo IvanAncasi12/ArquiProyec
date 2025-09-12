@@ -73,7 +73,7 @@ const Header = (props) => {
                                             <Link onClick={ClickHandler} href="/">Galeria</Link>
                                             <ul className="sub-menu">
                                                 <li><Link onClick={ClickHandler} href="/project">Proyectos</Link></li>
-                                                <li><Link onClick={ClickHandler} href="/project-2">Mas proyectos</Link></li>
+                                                {/* <li><Link onClick={ClickHandler} href="/project-2">Mas proyectos</Link></li> */}
                                                {/*  <li><Link onClick={ClickHandler} href="/project/Furniture-&-Decor">Portfolio Single</Link></li> */}
                                             </ul>
                                         </li>
@@ -83,7 +83,7 @@ const Header = (props) => {
                                                 <li><Link onClick={ClickHandler} href="/service">Ofertas Académicas</Link></li>
                                                 {/* <li><Link onClick={ClickHandler} href="/service-2">Service 2</Link></li> */}
                                                 <li><Link onClick={ClickHandler} href="/service-3">Cursos</Link></li>
-                                                <li><Link onClick={ClickHandler} href="/service/Interior-Design">Gaceta</Link></li>
+                                                {/* <li><Link onClick={ClickHandler} href="/service/Interior-Design">Gaceta</Link></li> */}
                                             </ul>
                                         </li>
                                         {/* <li className="menu-item-has-children">

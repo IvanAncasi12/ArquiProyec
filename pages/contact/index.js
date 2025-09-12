@@ -9,7 +9,7 @@ const ContactPage =() => {
     return(
         <Fragment>
             <Navbar hclass={'wpo-header-style-2'}/>
-            <PageTitle pageTitle={'Contact Us'} pagesub={'Contact'}/> 
+            <PageTitle pageTitle={'Contáctos'} pagesub={'Contáctos'}/> 
             <Contactpage/>
             <Footer/>
             <Scrollbar/>

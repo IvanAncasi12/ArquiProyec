@@ -10,7 +10,7 @@ const PricingPage =() => {
     return(
         <Fragment>
             <Navbar hclass={'wpo-header-style-2'}/>
-            <PageTitle pageTitle={'Pricing'} pagesub={'Pricing'}/> 
+            <PageTitle pageTitle={'Enlaces'} pagesub={'Enlaces'}/> 
             <Pricing/>
             <Footer/>
             <Scrollbar/>
