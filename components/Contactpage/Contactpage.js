@@ -91,7 +91,7 @@ const Contactpage = () => {
             <section className="wpo-contact-map-section">
   <div className="wpo-contact-map">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15302.861203641156!2d-68.22724401284178!3d-16.489947399999977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edff3a8b54169%3A0xe96bd00f49d1e8b4!2sCarrera%20de%20Arquitectura%20-%20UPEA!5e0!3m2!1ses-419!2sbo!4v1757704979925!5m2!1ses-419!2sbo"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d713.6885377271602!2d-68.19414190200722!3d-16.49238963172233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edf00108c36d3%3A0x13ada1efc0fad78b!2sARQUITECTURA!5e0!3m2!1ses-419!2sbo!4v1761579901445!5m2!1ses-419!2sbo"
       style={{
         border: 0,
         width: "100%",

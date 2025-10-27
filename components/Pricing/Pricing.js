@@ -36,7 +36,7 @@ const Pricing = (props) => {
                                             <li>Sistema de Matriculación Universidad Pública de El Alto</li>
                                             
                                         </ul>
-                                        <Link onClick={ClickHandler} href="https://matriculacion.upea.bo/6e56c5c3766bda500b0c353c32bfa6d36fc48c6e">M@E</Link>
+                                        <Link onClick={ClickHandler} href="https://matriculacion.upea.bo/6e56c5c3766bda500b0c353c32bfa6d36fc48c6e" target='_blank'>M@E</Link>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@ const Pricing = (props) => {
                                         <ul>
                                             <li>Campus Virtual de la carrera de Arquitectura</li>
                                         </ul>
-                                        <Link onClick={ClickHandler} href="#">CAMPUS VIRTUAL</Link>
+                                        <Link onClick={ClickHandler} href="#" target='_blank'>CAMPUS VIRTUAL</Link>
                                     </div>
                                 </div>
                             </div>
