@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';
-import Services from '../../api/Services';
+// import Services from '../../api/Services'; // 👈 Comentado si no se usa
 import Image from 'next/image';
-
+import api from '@/plugins/axios' // 👈 Importamos axios configurado
 
 const settings = {
     dots: true,
@@ -18,72 +18,78 @@ const settings = {
     responsive: [
         {
             breakpoint: 1600,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-            }
+            settings: { slidesToShow: 3, slidesToScroll: 1 }
         },
         {
             breakpoint: 1500,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-            }
+            settings: { slidesToShow: 2, slidesToScroll: 1 }
         },
         {
             breakpoint: 1200,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
+            settings: { slidesToShow: 2, slidesToScroll: 1 }
         },
         {
             breakpoint: 1100,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
+            settings: { slidesToShow: 2, slidesToScroll: 1 }
         },
         {
             breakpoint: 767,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
+            settings: { slidesToShow: 2, slidesToScroll: 1 }
         },
         {
             breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
+            settings: { slidesToShow: 1, slidesToScroll: 1 }
         }
     ]
 };
-
-
 
 const ServiceSection = (props) => {
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
     }
+    
     const [ofertas, setOfertas] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
     useEffect(() => {
         const fetchOfertas = async () => {
             try {
-                const response = await fetch("https://serviciopagina.upea.bo/api/OfertasAcademicasAll/36");
-                const data = await response.json();
-                setOfertas(data);
+                // 👇 Usamos el nuevo servicio con axios configurado
+                // Endpoint probable para ofertas académicas/recursos
+                const response = await api.get('/institucion/21/gacetaEventos') // 👈 Ejemplo de endpoint para ofertas académicas
+                
+                // 👇 Ajusta según la estructura real de la respuesta
+                // console.log('🔍 Datos Ofertas:', response.data) // 👈 Descomenta para depurar
+                
+                // Si la respuesta viene como array directo:
+                setOfertas(response.data)
+                
+                // Si viene anidada (ej: response.data.ofertas o response.data.data):
+                // setOfertas(response.data.ofertas || response.data.data || [])
+                
             } catch (error) {
-                console.error("Error :", error);
+                console.error("❌ Error al obtener ofertas académicas:", error);
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchOfertas();
     }, []);
-    return (
 
+    // Estado de carga (opcional, para mejor UX)
+    if (loading) {
+        return (
+            <section className="Arkitek-service-section-s3 section-padding">
+                <div className="container text-center py-5">
+                    <p>Cargando ofertas académicas...</p>
+                </div>
+            </section>
+        )
+    }
+
+    return (
         <section className="Arkitek-service-section-s3 section-padding">
             <div className="shape-1">
                 <svg width="596" height="590" viewBox="0 0 596 590" fill="none">
@@ -101,24 +107,47 @@ const ServiceSection = (props) => {
                         <div className="wpo-section-title">
                             <h2>Ofertas Académicas</h2>
                             <p>¡Bienvenida a la Carrera de Arquitectura de la UPEA! Te damos la más cordial bienvenida a esta emocionante casa superior de estudios. La carrera de Arquitectura te ofrece una sólida base teórica y práctica para convertirte en un profesional capaz de diseñar y proyectar espacios funcionales, estéticos y sostenibles. Te invitamos a explorar este nuevo mundo lleno de creatividad, innovación y responsabilidad social.</p>
-                           {/*  <Link onClick={ClickHandler} href="/service">See All Services....</Link> */}
                         </div>
-
                     </div>
                     <div className="service-content service-content-slider">
                         <Slider {...settings}>
-                            {ofertas.map((ofertas, index) => (
-                                <div className="col-xl-4 col-lg-4 col-md-6" key={index}>
-                                    <div className="icon">
-                                        <img
-                                            src={`https://serviciopagina.upea.bo/Carrera/OfertasAcademicas/${ofertas.ofertas_imagen}`} alt="img" width={500} height={300} layout="responsive" unoptimized />
+                            {ofertas.length > 0 ? (
+                                ofertas.map((oferta, index) => (
+                                    <div className="col-xl-4 col-lg-4 col-md-6" key={index}>
+                                        <div className="icon">
+                                            {/* 👇 Actualizamos la URL de imágenes al nuevo dominio */}
+                                            <Image 
+                                                src={
+                                                    oferta.ofertas_imagen?.startsWith('http') 
+                                                    ? oferta.ofertas_imagen 
+                                                    : `https://servicioadministrador.upea.bo/api/v2/institucion/21/gacetaEventos${oferta.ofertas_imagen}`
+                                                } 
+                                                alt={oferta.ofertas_titulo || 'Oferta académica'} 
+                                                width={500} 
+                                                height={300} 
+                                                layout="responsive" 
+                                                unoptimized={true} 
+                                            />
+                                        </div>
+                                        <div className="text">
+                                            <h2>
+                                                <Link onClick={ClickHandler} href='#'>
+                                                    <p dangerouslySetInnerHTML={{ 
+                                                        __html: oferta.ofertas_titulo || oferta.titulo || oferta.nombre || '' 
+                                                    }} />
+                                                </Link>
+                                            </h2>
+                                            <p dangerouslySetInnerHTML={{ 
+                                                __html: oferta.ofertas_referencia || oferta.descripcion || oferta.referencia || '' 
+                                            }} />
+                                        </div>
                                     </div>
-                                    <div className="text">
-                                        <h2><Link onClick={ClickHandler} href='#' ><p dangerouslySetInnerHTML={{ __html: ofertas.ofertas_titulo }} /></Link></h2>
-                                        <p dangerouslySetInnerHTML={{ __html: ofertas.ofertas_referencia }} />
-                                    </div>
+                                ))
+                            ) : (
+                                <div className="col-12 text-center">
+                                    <p>No hay ofertas académicas disponibles</p>
                                 </div>
-                            ))}
+                            )}
                         </Slider>
                     </div>
                 </div>
@@ -126,6 +155,5 @@ const ServiceSection = (props) => {
         </section>
     )
 }
-
 
 export default ServiceSection;

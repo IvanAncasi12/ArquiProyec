@@ -102,7 +102,7 @@ const Footer = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col col-xs-12">
-                            <p className="copyright">&copy;2025 Universidad Pública de El Alto. Todos los derechos reservados <Link onClick={ClickHandler} href="/home"> | U-TIC</Link>.</p>
+                            <p className="copyright">&copy;2026 Universidad Pública de El Alto. Todos los derechos reservados <Link onClick={ClickHandler} href="/home"> | U-TIC</Link>.</p>
                         </div>
                     </div>
                 </div>

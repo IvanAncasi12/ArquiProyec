@@ -1,19 +1,30 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import ContactForm from '../ContactFrom'
-
+import api from '@/plugins/axios' // 👈 Importamos axios configurado
 
 const Contactpage = () => {
     const [institucion, setInstitucion] = useState(null);
     const [loading, setLoading] = useState(true);
+    
     useEffect(() => {
         const fetchInstitucion = async () => {
             try {
-                const response = await fetch("https://serviciopagina.upea.bo/api/InstitucionUPEA/36");
-                const data = await response.json();
-                setInstitucion(data.Descripcion);
+                // 👇 Usamos el nuevo servicio con axios configurado
+                // Endpoint probable para datos de contacto de la institución
+                const response = await api.get('/institucionesPrincipal/21')
+                
+                // 👇 Ajusta según la estructura real de la respuesta
+                // console.log('🔍 Datos Contact:', response.data) // 👈 Descomenta para depurar
+                
+                // Si la respuesta viene directa:
+                setInstitucion(response.data)
+                
+                // Si viene anidada (ej: response.data.data o response.data.institucion):
+                // setInstitucion(response.data.data || response.data.institucion)
+                
             } catch (error) {
-                console.error("Error al obtener datos:", error);
+                console.error("❌ Error al obtener datos de contacto:", error);
             } finally {
                 setLoading(false);
             }
@@ -21,6 +32,18 @@ const Contactpage = () => {
 
         fetchInstitucion();
     }, []);
+    
+    // Estado de carga (opcional, para mejor UX)
+    if (loading) {
+        return (
+            <section className="wpo-contact-pg-section section-padding">
+                <div className="container text-center py-5">
+                    <p>Cargando información de contacto...</p>
+                </div>
+            </section>
+        )
+    }
+
     return (
         <section className="wpo-contact-pg-section section-padding">
             <div className="container">
@@ -38,9 +61,10 @@ const Contactpage = () => {
                                             </div>
                                         </div>
                                         <div className="office-info-text">
-                                            <h2>Dirreción</h2>
+                                            <h2>Dirección</h2>
                                             <div className="text">
-                                                <p>{institucion.institucion_direccion}</p>
+                                                {/* 👇 Verifica el nombre del campo según la nueva respuesta */}
+                                                <p>{institucion.institucion_direccion || institucion.direccion || institucion.address || 'Sin dirección registrada'}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -53,9 +77,17 @@ const Contactpage = () => {
                                             </div>
                                         </div>
                                         <div className="office-info-text">
-                                            <h2>Correo Eletrónico</h2>
-                                            <p>{institucion.institucion_correo1}</p>
-                                            <p>{institucion.institucion_correo2}</p>
+                                            <h2>Correo Electrónico</h2>
+                                            {/* 👇 Validamos que existan antes de renderizar */}
+                                            {institucion.institucion_correo1 && <p>{institucion.institucion_correo1}</p>}
+                                            {institucion.institucion_correo2 && <p>{institucion.institucion_correo2}</p>}
+                                            {/* Fallback si los nombres cambian */}
+                                            {!institucion.institucion_correo1 && !institucion.institucion_correo2 && (
+                                                <>
+                                                    {institucion.correo_principal && <p>{institucion.correo_principal}</p>}
+                                                    {institucion.correo_secundario && <p>{institucion.correo_secundario}</p>}
+                                                </>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -68,19 +100,26 @@ const Contactpage = () => {
                                         </div>
                                         <div className="office-info-text">
                                             <h2>Teléfono</h2>
-                                            <p>{institucion.institucion_celular1}</p>
-                                            <p>{institucion.institucion_celular2}</p>
+                                            {institucion.institucion_celular1 && <p>{institucion.institucion_celular1}</p>}
+                                            {institucion.institucion_celular2 && <p>{institucion.institucion_celular2}</p>}
+                                            {/* Fallback si los nombres cambian */}
+                                            {!institucion.institucion_celular1 && !institucion.institucion_celular2 && (
+                                                <>
+                                                    {institucion.telefono_principal && <p>{institucion.telefono_principal}</p>}
+                                                    {institucion.telefono_secundario && <p>{institucion.telefono_secundario}</p>}
+                                                </>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
                                 </>
                 )}
-
                             </div>
                         </div>
                         <div className="wpo-contact-title">
-                            <h2>Dónde puedes encontrarnos?</h2>
-                            <p>Av. Sucre Z. Villa Esperanza, Campus Upea Bloque B Piso 3.</p>
+                            <h2>¿Dónde puedes encontrarnos?</h2>
+                            {/* 👇 También podrías traer esta dirección desde la API si está disponible */}
+                            <p>{institucion?.institucion_direccion || 'Av. Sucre Z. Villa Esperanza, Campus Upea Bloque B Piso 3.'}</p>
                         </div>
                         {/*  <div className="wpo-contact-form-area">
                             <ContactForm />
@@ -89,38 +128,35 @@ const Contactpage = () => {
                 </div>
             </div>
             <section className="wpo-contact-map-section">
-  <div className="wpo-contact-map">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d713.6885377271602!2d-68.19414190200722!3d-16.49238963172233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edf00108c36d3%3A0x13ada1efc0fad78b!2sARQUITECTURA!5e0!3m2!1ses-419!2sbo!4v1761579901445!5m2!1ses-419!2sbo"
-      style={{
-        border: 0,
-        width: "100%",
-        height: "min(60vh, 520px)",
-        filter: "none",
-        WebkitFilter: "none",
-        mixBlendMode: "normal",
-        background: "transparent"
-      }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      // sandbox="allow-same-origin allow-scripts allow-popups" // opcional
-    />
-  </div>
+                <div className="wpo-contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d713.6885377271602!2d-68.19414190200722!3d-16.49238963172233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915edf00108c36d3%3A0x13ada1efc0fad78b!2sARQUITECTURA!5e0!3m2!1ses-419!2sbo!4v1761579901445!5m2!1ses-419!2sbo"
+                        style={{
+                            border: 0,
+                            width: "100%",
+                            height: "min(60vh, 520px)",
+                            filter: "none",
+                            WebkitFilter: "none",
+                            mixBlendMode: "normal",
+                            background: "transparent"
+                        }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+                </div>
 
-  {/* Fuerza color y evita filtros heredados */}
-  <style jsx>{`
-    .wpo-contact-map, .wpo-contact-map * {
-      filter: none !important;
-      -webkit-filter: none !important;
-      mix-blend-mode: normal !important;
-    }
-  `}</style>
-</section>
-
+                {/* Fuerza color y evita filtros heredados */}
+                <style jsx>{`
+                    .wpo-contact-map, .wpo-contact-map * {
+                        filter: none !important;
+                        -webkit-filter: none !important;
+                        mix-blend-mode: normal !important;
+                    }
+                `}</style>
+            </section>
         </section>
     )
-
 }
 
 export default Contactpage;
