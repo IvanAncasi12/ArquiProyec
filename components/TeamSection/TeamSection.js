@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import Link from 'next/link'
 import SectionTitle from '../SectionTitle/SectionTitle';
 import Image from 'next/image';
@@ -14,41 +14,36 @@ const TeamSection = (props) => {
     const [loading, setLoading] = useState(true);
     
     useEffect(() => {
+        let isMounted = true;
+        
         const fetchUsers = async () => {
           try {
-            // 👇 Usamos 'result' en lugar de 'response' para evitar conflicto
-            const result = await api.get('/institucion/21/contenido') // 👈 Endpoint para obtener autoridades (ajusta si es otro)
+            const result = await api.get('/institucion/21/contenido')
             
-            console.log('🔍 Respuesta completa del API:', result.data)
+            console.log('🔍 Respuesta autoridades:', result.data)
             
-            // 👇 Extraemos los datos según la estructura que veo en tu consola
-            // Probablemente las autoridades están en alguna de estas propiedades
-            const autoridadesData = result.data.upea_publicaciones || 
+            const autoridadesData = result.data.autoridad || 
+                                   result.data.upea_publicaciones || 
                                    result.data.linksExternoInterno || 
-                                   result.data.links || 
-                                   result.data.autoridad ||
+                                   result.data.links ||
                                    []
             
-            console.log('🔍 Datos de autoridades extraídos:', autoridadesData)
-            
-            // Nos aseguramos de que sea un array
-            if (Array.isArray(autoridadesData)) {
+            if (isMounted && Array.isArray(autoridadesData)) {
                 setUsers(autoridadesData)
-            } else {
-                console.warn('⚠️ Los datos no son un array:', autoridadesData)
-                setUsers([])
             }
             
           } catch (error) {
             console.error("❌ Error al obtener autoridades:", error);
-            setUsers([])
+            if (isMounted) setUsers([])
           } finally {
-            setLoading(false);
+            if (isMounted) setLoading(false);
           }
         };
     
         fetchUsers();
-      }, []);
+        
+        return () => { isMounted = false; }
+    }, []);
       
     if (loading) {
         return (
@@ -61,55 +56,91 @@ const TeamSection = (props) => {
     }
 
     return (
-        <section className="Arkitek-team-section-s2 section-padding">
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-lg-6 col-12">
-                        <SectionTitle subTitle={'ARQUITECTURA'} Title={'Autoridades'} />
-                    </div>
-                </div>
-                <div className="team-wrapar">
-                    <div className="row">
-                    {users.length > 0 ? (
-                        users.map((user, index) => (
-                            <div className="col col-lg-4 col-md-6 col-12" key={index}>
-                                <div className="team-item">
-                                    <div className="image">
-                                        <div className="shape-1"></div>
-                                        <Image 
-                                            src={
-                                                user.foto_autoridad?.startsWith('http') 
-                                                ? user.foto_autoridad 
-                                                : `https://servicioadministrador.upea.bo/contenido/21${user.foto_autoridad}`
-                                            } 
-                                            alt={user.nombre_autoridad || 'Autoridad'} 
-                                            width={200} 
-                                            height={200} 
-                                            unoptimized={true}
-                                        />
-                                        <ul className="icon">
-                                            <li><Link onClick={ClickHandler} href="#" aria-label="Facebook"><i className="ti-facebook"></i></Link></li>
-                                            <li><Link onClick={ClickHandler} href="#" aria-label="Twitter"><i className="ti-twitter-alt"></i></Link></li>
-                                            <li><Link onClick={ClickHandler} href="#" aria-label="Instagram"><i className="ti-instagram"></i></Link></li>
-                                        </ul>
-                                    </div>
-                                    <div className="team-content">
-                                        <h2>{user.cargo_autoridad || user.cargo || 'Sin cargo'}</h2>
-                                        <span>{user.nombre_autoridad || user.nombre || 'Sin nombre'}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))
-                    ) : (
-                        <div className="col-12 text-center">
-                            <p>No hay autoridades registradas</p>
+        <>
+            <style jsx global>{`
+                .team-item {
+                    will-change: auto;
+                    transform: translateZ(0);
+                    backface-visibility: hidden;
+                }
+                .team-item .image {
+                    position: relative !important;
+                    overflow: hidden;
+                }
+                .team-item img {
+                    transition: opacity 0.2s ease-in-out;
+                }
+                .team-item .icon li a {
+                    transition: transform 0.2s ease;
+                }
+                .team-item .icon li a:hover {
+                    transform: scale(1.2);
+                }
+            `}</style>
+            
+            <section className="Arkitek-team-section-s2 section-padding">
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-6 col-12">
+                            <SectionTitle subTitle={'ARQUITECTURA'} Title={'Autoridades'} />
                         </div>
-                    )}
+                    </div>
+                    <div className="team-wrapar">
+                        <div className="row">
+                        {users.length > 0 ? (
+                            users.map((user, index) => {
+                                const imageUrl = user.foto_autoridad?.startsWith('http') 
+                                    ? user.foto_autoridad 
+                                    : `https://servicioadministrador.upea.bo/contenido/${user.foto_autoridad}`
+                                
+                                // 👇 Extraer URLs de redes sociales (ajusta según los campos reales)
+                                const facebookUrl = user.facebook_autoridad || user.facebook || ''
+                                const twitterUrl = user.twitter_autoridad || user.twiter_autoridad || user.twitter || ''
+                                const instagramUrl = user.instagram_autoridad || user.instagram || ''
+                                
+                                return (
+                                    <div className="col col-lg-4 col-md-6 col-12" key={user.id || index}>
+                                        <div className="team-item">
+                                            <div className="image" style={{
+                                                position: 'relative',
+                                                width: '100%',
+                                                height: '250px',
+                                                overflow: 'hidden',
+                                                borderRadius: '8px'
+                                            }}>
+                                                <Image 
+                                                    src={imageUrl}
+                                                    alt={user.nombre_autoridad || 'Autoridad'}
+                                                    fill
+                                                    style={{objectFit: 'cover'}}
+                                                    unoptimized={true}
+                                                    priority={index < 3}
+                                                    onError={(e) => {
+                                                        console.warn('❌ Error imagen:', imageUrl)
+                                                        e.target.style.opacity = '0.5'
+                                                    }}
+                                                />
+                                            </div>
+                                        
+                                            <div className="team-content">
+                                                <h2>{user.cargo_autoridad || user.cargo || 'Sin cargo'}</h2>
+                                                <span>{user.nombre_autoridad || user.nombre || 'Sin nombre'}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        ) : (
+                            <div className="col-12 text-center">
+                                <p>No hay autoridades registradas</p>
+                            </div>
+                        )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 }
 
-export default TeamSection;
+export default memo(TeamSection);

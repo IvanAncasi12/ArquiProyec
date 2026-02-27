@@ -1,0 +1,14 @@
+# URL base de la API
+NEXT_PUBLIC_API_BASE_URL=https://servicioadministrador.upea.bo/api/v2
+
+# Endpoints específicos
+NEXT_PUBLIC_API_INSTITUCIONES_PRINCIPAL=https://servicioadministrador.upea.bo/api/v2/institucionesPrincipal/21
+NEXT_PUBLIC_API_INSTITUCION_CONTENIDO=https://servicioadministrador.upea.bo/api/v2/institucion/21/contenido
+NEXT_PUBLIC_API_INSTITUCION_RECURSOS=https://servicioadministrador.upea.bo/api/v2/institucion/21/recursos
+NEXT_PUBLIC_API_INSTITUCION_GACETA_EVENTOS=https://servicioadministrador.upea.bo/api/v2/institucion/21/gacetaEventos
+
+# Token de autorización
+NEXT_PUBLIC_API_TOKEN=bdfc0f511561b941840fd1971dd15488f120b38096a354926493b2f36519791d
+
+# Origin para headers
+NEXT_PUBLIC_FRONTEND_URL=http://localhost:5173

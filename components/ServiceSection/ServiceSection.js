@@ -4,9 +4,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';
-// import Services from '../../api/Services'; // 👈 Comentado si no se usa
 import Image from 'next/image';
-import api from '@/plugins/axios' // 👈 Importamos axios configurado
+import api from '@/plugins/axios'
 
 const settings = {
     dots: true,
@@ -16,38 +15,17 @@ const settings = {
     slidesToScroll: 1,
     autoplay: true,
     responsive: [
-        {
-            breakpoint: 1600,
-            settings: { slidesToShow: 3, slidesToScroll: 1 }
-        },
-        {
-            breakpoint: 1500,
-            settings: { slidesToShow: 2, slidesToScroll: 1 }
-        },
-        {
-            breakpoint: 1200,
-            settings: { slidesToShow: 2, slidesToScroll: 1 }
-        },
-        {
-            breakpoint: 1100,
-            settings: { slidesToShow: 2, slidesToScroll: 1 }
-        },
-        {
-            breakpoint: 767,
-            settings: { slidesToShow: 2, slidesToScroll: 1 }
-        },
-        {
-            breakpoint: 575,
-            settings: { slidesToShow: 1, slidesToScroll: 1 }
-        }
+        { breakpoint: 1600, settings: { slidesToShow: 3, slidesToScroll: 1 }},
+        { breakpoint: 1500, settings: { slidesToShow: 2, slidesToScroll: 1 }},
+        { breakpoint: 1200, settings: { slidesToShow: 2, slidesToScroll: 1 }},
+        { breakpoint: 1100, settings: { slidesToShow: 2, slidesToScroll: 1 }},
+        { breakpoint: 767, settings: { slidesToShow: 2, slidesToScroll: 1 }},
+        { breakpoint: 575, settings: { slidesToShow: 1, slidesToScroll: 1 }}
     ]
 };
 
 const ServiceSection = (props) => {
-
-    const ClickHandler = () => {
-        window.scrollTo(10, 0);
-    }
+    const ClickHandler = () => { window.scrollTo(10, 0); }
     
     const [ofertas, setOfertas] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -55,21 +33,26 @@ const ServiceSection = (props) => {
     useEffect(() => {
         const fetchOfertas = async () => {
             try {
-                // 👇 Usamos el nuevo servicio con axios configurado
-                // Endpoint probable para ofertas académicas/recursos
-                const response = await api.get('/institucion/21/gacetaEventos') // 👈 Ejemplo de endpoint para ofertas académicas
+                // 👇 Endpoint CORRECTO - gacetaEventos
+                const result = await api.get('/institucion/21/gacetaEventos')
                 
-                // 👇 Ajusta según la estructura real de la respuesta
-                // console.log('🔍 Datos Ofertas:', response.data) // 👈 Descomenta para depurar
+                console.log('🔍 Respuesta completa gacetaEventos:', result.data)
                 
-                // Si la respuesta viene como array directo:
-                setOfertas(response.data)
+                // 👇 Extraer ofertas académicas (ajusta según la estructura)
+                const ofertasData = result.data.ofertasAcademicas || 
+                                   result.data.ofertas_academicas || 
+                                   result.data.recursos || 
+                                   result.data.data || 
+                                   (Array.isArray(result.data) ? result.data : [])
                 
-                // Si viene anidada (ej: response.data.ofertas o response.data.data):
-                // setOfertas(response.data.ofertas || response.data.data || [])
+                console.log('🔍 Ofertas académicas extraídas:', ofertasData)
+                console.log('🔍 Cantidad:', Array.isArray(ofertasData) ? ofertasData.length : 'No es array')
+                
+                setOfertas(Array.isArray(ofertasData) ? ofertasData : [])
                 
             } catch (error) {
                 console.error("❌ Error al obtener ofertas académicas:", error);
+                setOfertas([])
             } finally {
                 setLoading(false);
             }
@@ -77,8 +60,7 @@ const ServiceSection = (props) => {
 
         fetchOfertas();
     }, []);
-
-    // Estado de carga (opcional, para mejor UX)
+    
     if (loading) {
         return (
             <section className="Arkitek-service-section-s3 section-padding">
@@ -112,39 +94,42 @@ const ServiceSection = (props) => {
                     <div className="service-content service-content-slider">
                         <Slider {...settings}>
                             {ofertas.length > 0 ? (
-                                ofertas.map((oferta, index) => (
-                                    <div className="col-xl-4 col-lg-4 col-md-6" key={index}>
-                                        <div className="icon">
-                                            {/* 👇 Actualizamos la URL de imágenes al nuevo dominio */}
-                                            <Image 
-                                                src={
-                                                    oferta.ofertas_imagen?.startsWith('http') 
-                                                    ? oferta.ofertas_imagen 
-                                                    : `https://servicioadministrador.upea.bo/api/v2/institucion/21/gacetaEventos${oferta.ofertas_imagen}`
-                                                } 
-                                                alt={oferta.ofertas_titulo || 'Oferta académica'} 
-                                                width={500} 
-                                                height={300} 
-                                                layout="responsive" 
-                                                unoptimized={true} 
-                                            />
+                                ofertas.map((oferta, index) => {
+                                    // 👇 Construir URL de imagen correctamente
+                                    const imageUrl = oferta.ofertas_imagen?.startsWith('http')
+                                        ? oferta.ofertas_imagen
+                                        : `https://servicioadministrador.upea.bo/recursos/21${oferta.ofertas_imagen}`
+                                    
+                                    return (
+                                        <div className="col-xl-4 col-lg-4 col-md-6" key={index}>
+                                            <div className="icon">
+                                                <Image 
+                                                    src={imageUrl}
+                                                    alt={oferta.ofertas_titulo || 'Oferta académica'}
+                                                    width={500}
+                                                    height={300}
+                                                    style={{objectFit: 'cover'}}
+                                                    unoptimized={true}
+                                                    onError={() => console.warn('❌ Error imagen:', imageUrl)}
+                                                />
+                                            </div>
+                                            <div className="text">
+                                                <h2>
+                                                    <Link onClick={ClickHandler} href='#'>
+                                                        <p dangerouslySetInnerHTML={{ 
+                                                            __html: oferta.ofertas_titulo || oferta.titulo || oferta.nombre || 'Sin título' 
+                                                        }} />
+                                                    </Link>
+                                                </h2>
+                                                <p dangerouslySetInnerHTML={{ 
+                                                    __html: oferta.ofertas_referencia || oferta.descripcion || oferta.referencia || '' 
+                                                }} />
+                                            </div>
                                         </div>
-                                        <div className="text">
-                                            <h2>
-                                                <Link onClick={ClickHandler} href='#'>
-                                                    <p dangerouslySetInnerHTML={{ 
-                                                        __html: oferta.ofertas_titulo || oferta.titulo || oferta.nombre || '' 
-                                                    }} />
-                                                </Link>
-                                            </h2>
-                                            <p dangerouslySetInnerHTML={{ 
-                                                __html: oferta.ofertas_referencia || oferta.descripcion || oferta.referencia || '' 
-                                            }} />
-                                        </div>
-                                    </div>
-                                ))
+                                    )
+                                })
                             ) : (
-                                <div className="col-12 text-center">
+                                <div className="col-12 text-center py-4">
                                     <p>No hay ofertas académicas disponibles</p>
                                 </div>
                             )}

@@ -20,7 +20,7 @@ const Footer2 = (props) => {
             try {
                 // 👇 Usamos el nuevo servicio con axios configurado
                 // Endpoint probable para datos generales de la institución
-                const response = await api.get('/institucionesPrincipal/1')
+                const response = await api.get('/institucionesPrincipal/21')
                 
                 // 👇 Ajusta según la estructura real de la respuesta
                 // console.log('Datos institución footer:', response.data) // 👈 Descomenta para depurar

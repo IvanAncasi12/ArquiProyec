@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import api from '@/plugins/axios'
 
-const WBlogSection = (props) => {
+const BlogSection = (props) => {
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
@@ -63,57 +63,50 @@ const WBlogSection = (props) => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="gallery-container clearfix">
-                                {users.length > 0 ? (
-                                    users.map((user, index) => {
-                                        // 👉 Construir URL de imagen correctamente
-                                        const imageUrl = user.evento_imagen?.startsWith('http') 
-                                            ? user.evento_imagen 
-                                            : `https://servicioadministrador.upea.bo/contenido/21${user.evento_imagen}`
-                                        
-                                        return (
-                                            <div className="grid" key={index} style={{width: '100%', height: 'auto'}}>
-                                                <div>
-                                                    <div className="image" style={{position: 'relative', width: '100%', height: '400px', overflow: 'hidden'}}>
-                                                        <Image 
-                                                            src={imageUrl}
-                                                            alt={user.evento_titulo || 'Evento'}
-                                                            fill
-                                                            style={{objectFit: 'cover'}}
-                                                            unoptimized={true}
-                                                            onError={() => {
-                                                                console.warn('❌ Error cargando imagen:', imageUrl)
-                                                            }}
-                                                        />
+                                {users.length > 0 && users.map((user, index) => {
+                                    const imageUrl = user.evento_imagen?.startsWith('http') 
+                                        ? user.evento_imagen 
+                                        : `https://servicioadministrador.upea.bo/contenido/21${user.evento_imagen}`
+                                    
+                                    return (
+                                        <div className="grid" key={index} style={{width: '100%', height: 'auto'}}>
+                                            <div>
+                                                <div className="image" style={{position: 'relative', width: '100%', height: '400px', overflow: 'hidden'}}>
+                                                    <Image 
+                                                        src={imageUrl}
+                                                        alt={user.evento_titulo || 'Evento'}
+                                                        fill
+                                                        style={{objectFit: 'cover'}}
+                                                        unoptimized={true}
+                                                        onError={() => {
+                                                            console.warn('❌ Error cargando imagen:', imageUrl)
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div className="blog-content">
+                                                    <div className="thumb">
+                                                        <ul>
+                                                            <li>
+                                                                {user.evento_lugar || user.lugar || ''} 
+                                                                {user.evento_fecha && (
+                                                                    <p dangerouslySetInnerHTML={{ __html: user.evento_fecha }} />
+                                                                )}
+                                                            </li>
+                                                        </ul>
                                                     </div>
-                                                    <div className="blog-content">
-                                                        <div className="thumb">
-                                                            <ul>
-                                                                <li>
-                                                                    {user.evento_lugar || user.lugar || ''} 
-                                                                    {user.evento_fecha && (
-                                                                        <p dangerouslySetInnerHTML={{ __html: user.evento_fecha }} />
-                                                                    )}
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <h2>
-                                                            <p dangerouslySetInnerHTML={{ 
-                                                                __html: user.evento_titulo || user.titulo || 'Sin título' 
-                                                            }} />
-                                                        </h2>
+                                                    <h2>
                                                         <p dangerouslySetInnerHTML={{ 
-                                                            __html: user.evento_descripcion || user.descripcion || '' 
+                                                            __html: user.evento_titulo || user.titulo || 'Sin título' 
                                                         }} />
-                                                    </div>
+                                                    </h2>
+                                                    <p dangerouslySetInnerHTML={{ 
+                                                        __html: user.evento_descripcion || user.descripcion || '' 
+                                                    }} />
                                                 </div>
                                             </div>
-                                        )
-                                    })
-                                ) : (
-                                    <div className="col-12 text-center py-5">
-                                        <p>No hay eventos disponibles</p>
-                                    </div>
-                                )}
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
                     </div>
