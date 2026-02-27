@@ -18,13 +18,7 @@ const BlogSection2 = (props) => {
     useEffect(() => {
         const fetchCursos = async () => {
           try {
-            // 👇 Usamos el nuevo servicio con axios
-            // NOTA: Ajusta el endpoint según donde estén los cursos en el nuevo servicio
-            // Opciones probables:
-            // - /institucion/1/recursos (si los cursos son "recursos")
-            // - /institucion/1/contenido
-            // - Otro endpoint específico
-            
+        
             const response = await api.get('/institucion/21/gacetaEventos') // 👈 Ejemplo de endpoint para cursos/eventos
             
             // 👇 Ajusta según la estructura real de la respuesta
