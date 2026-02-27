@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import ContactForm from '../ContactFrom'
-import api from '@/plugins/axios' // 👈 Importamos axios configurado
+import api from '@/plugins/axios'
 
 const Contactpage = () => {
     const [institucion, setInstitucion] = useState(null);
@@ -10,19 +10,8 @@ const Contactpage = () => {
     useEffect(() => {
         const fetchInstitucion = async () => {
             try {
-                // 👇 Usamos el nuevo servicio con axios configurado
-                // Endpoint probable para datos de contacto de la institución
                 const response = await api.get('/institucionesPrincipal/21')
-                
-                // 👇 Ajusta según la estructura real de la respuesta
-                // console.log('🔍 Datos Contact:', response.data) // 👈 Descomenta para depurar
-                
-                // Si la respuesta viene directa:
                 setInstitucion(response.data)
-                
-                // Si viene anidada (ej: response.data.data o response.data.institucion):
-                // setInstitucion(response.data.data || response.data.institucion)
-                
             } catch (error) {
                 console.error("❌ Error al obtener datos de contacto:", error);
             } finally {
@@ -32,8 +21,6 @@ const Contactpage = () => {
 
         fetchInstitucion();
     }, []);
-    
-    // Estado de carga (opcional, para mejor UX)
     if (loading) {
         return (
             <section className="wpo-contact-pg-section section-padding">
@@ -63,7 +50,6 @@ const Contactpage = () => {
                                         <div className="office-info-text">
                                             <h2>Dirección</h2>
                                             <div className="text">
-                                                {/* 👇 Verifica el nombre del campo según la nueva respuesta */}
                                                 <p>{institucion.institucion_direccion || institucion.direccion || institucion.address || 'Sin dirección registrada'}</p>
                                             </div>
                                         </div>
@@ -118,7 +104,6 @@ const Contactpage = () => {
                         </div>
                         <div className="wpo-contact-title">
                             <h2>¿Dónde puedes encontrarnos?</h2>
-                            {/* 👇 También podrías traer esta dirección desde la API si está disponible */}
                             <p>{institucion?.institucion_direccion || 'Av. Sucre Z. Villa Esperanza, Campus Upea Bloque B Piso 3.'}</p>
                         </div>
                         {/*  <div className="wpo-contact-form-area">
@@ -145,8 +130,6 @@ const Contactpage = () => {
                         referrerPolicy="no-referrer-when-downgrade"
                     />
                 </div>
-
-                {/* Fuerza color y evita filtros heredados */}
                 <style jsx>{`
                     .wpo-contact-map, .wpo-contact-map * {
                         filter: none !important;

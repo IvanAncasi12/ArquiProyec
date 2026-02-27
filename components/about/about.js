@@ -5,7 +5,7 @@ import abimg1 from '/public/images/01.jpg'
 import abimg2 from '/public/images/06.jpg'
 import Link from 'next/link'
 import Image from 'next/image';
-import api from '@/plugins/axios' // 👈 Importamos axios configurado
+import api from '@/plugins/axios'
 
 const About = (props) => {
 
@@ -19,19 +19,8 @@ const About = (props) => {
     useEffect(() => {
         const fetchInstitucion = async () => {
           try {
-            // 👇 Usamos el nuevo servicio con axios configurado
-            // Endpoint para obtener contenido/descripción de la institución
             const response = await api.get('/institucion/21/contenido')
-            
-            // 👇 Ajusta según la estructura real de la respuesta
-            // console.log('🔍 Datos About:', response.data) // 👈 Descomenta para depurar
-            
-            // Si la respuesta viene directa:
             setInstitucion(response.data)
-            
-            // Si viene anidada (ej: response.data.data o response.data.contenido):
-            // setInstitucion(response.data.data || response.data.contenido)
-            
           } catch (error) {
             console.error("❌ Error al obtener datos de la institución:", error);
           } finally {
@@ -42,7 +31,6 @@ const About = (props) => {
         fetchInstitucion();
       }, []);
     
-    // Estado de carga (opcional, para mejor UX)
     if (loading) {
         return (
             <section className="Arkitek-about-section-s4 section-padding">

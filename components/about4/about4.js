@@ -4,7 +4,7 @@ import Link from 'next/link'
 import abimg from '/public/images/04.jpg'
 import sign from '/public/images/signeture.png'
 import Image from 'next/image'
-import api from '@/plugins/axios' // 👈 Importamos nuestra instancia de axios
+import api from '@/plugins/axios'
 
 const About4 = (props) => {
 
@@ -18,16 +18,9 @@ const About4 = (props) => {
     useEffect(() => {
         const fetchInstitucion = async () => {
           try {
-            // 👇 Usamos el nuevo endpoint con axios configurado
-            // Nota: Ajusta el endpoint según la estructura real de la respuesta
             const response = await api.get('/institucion/1/contenido')
             
-            // 👇 Ajusta esto según la estructura real que devuelve tu nuevo servicio
-            // Si la respuesta viene directa en response.data:
             setInstitucion(response.data);
-            
-            // Si viene anidada (ej: response.data.data):
-            // setInstitucion(response.data.data);
             
           } catch (error) {
             console.error("❌ Error al obtener datos del nuevo servicio:", error);
@@ -38,8 +31,6 @@ const About4 = (props) => {
     
         fetchInstitucion();
       }, []);
-      
-    // Estado de carga
     if (loading) {
         return (
             <section className={`Arkitek-about-section ${props.abClass}`}>
@@ -60,7 +51,6 @@ const About4 = (props) => {
                                 <div className="wpo-section-title">
                                     <span>HISTORIA</span>
                                     <h2>ARQUITECTURA</h2>
-                                    {/* 👇 Verifica la propiedad correcta según la nueva respuesta */}
                                     <p dangerouslySetInnerHTML={{ 
                                         __html: institucion.institucion_historia || institucion.contenido || '' 
                                     }} />

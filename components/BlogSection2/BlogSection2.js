@@ -19,18 +19,10 @@ const BlogSection2 = (props) => {
         const fetchCursos = async () => {
           try {
         
-            const response = await api.get('/institucion/21/gacetaEventos') // 👈 Ejemplo de endpoint para cursos/eventos
+            const response = await api.get('/institucion/21/gacetaEventos')
             
-            // 👇 Ajusta según la estructura real de la respuesta
-            // Si los cursos vienen en response.data.cursos o response.data.data, etc.
-            console.log('Respuesta cursos:', response.data) // 👈 Descomenta para ver la estructura
-            
-            // Ejemplo si viene directo:
+            console.log('Respuesta cursos:', response.data)
             setCursos(response.data)
-            
-            // Ejemplo si viene anidado:
-            // setCursos(response.data.cursos || response.data.data || [])
-            
           } catch (error) {
             console.error("❌ Error al obtener cursos:", error);
           } finally {
@@ -40,8 +32,6 @@ const BlogSection2 = (props) => {
     
         fetchCursos();
       }, []);
-      
-    // Estado de carga
     if (loading) {
         return (
             <section className="wpo-blog-section section-padding">
@@ -69,8 +59,6 @@ const BlogSection2 = (props) => {
                                     <div className="grid" key={index}>
                                         <div >
                                             <div className="image">
-                                                {/* 👇 Ajusta la URL de las imágenes según el nuevo servicio */}
-                                                {/* Si las imágenes vienen con URL completa del nuevo servicio: */}
                                                 <Image 
                                                     src={curso.det_img_portada?.startsWith('http') 
                                                         ? curso.det_img_portada 
