@@ -1,7 +1,6 @@
 import React from "react";
 import Link from 'next/link'
 
-
 const Hero = () => {
     return (
         <section className="static-hero-s3">
@@ -25,8 +24,27 @@ const Hero = () => {
       <style jsx>{`
         .static-hero-s3 {
           position: relative;
-          overflow: hidden; /* oculta el fondo animado que sale del contenedor */
-          /* si ya tienes padding/altura desde tu tema, no toco nada aquí */
+          overflow: hidden;
+          height: 100vh;
+          min-height: 500px;
+          /* 👇 CAMBIO: Imagen en la parte superior, debajo del header */
+          background: url('/images/arquiportada10.png') center top/cover no-repeat;
+        }
+        
+        @media (max-width: 991px) {
+          .static-hero-s3 {
+            height: 100vh;
+            /* 👇 En móvil también bajar la imagen */
+            background-position: center 70%;
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .static-hero-s3 {
+            height: 100vh;
+            /* 👇 En móvil pequeño ajustar */
+            background-position: center 60%;
+          }
         }
 
         /* Capa 1: retícula/blueprint */
@@ -37,22 +55,17 @@ const Hero = () => {
           z-index: 0;
           pointer-events: none;
           background-image:
-            /* líneas verticales */
             repeating-linear-gradient(
               to right,
               rgba(0,0,0,0.07) 0 1px,
               transparent 1px 40px
             ),
-            /* líneas horizontales */
             repeating-linear-gradient(
               to bottom,
               rgba(0,0,0,0.07) 0 1px,
               transparent 1px 40px
             );
           animation: gridPan 36s linear infinite;
-          /* si quieres fondo blanco garantizado, descomenta:
-          background-color: #fff;
-          */
         }
 
         /* Capa 2: diagonales/tirantes estructurales */
@@ -63,20 +76,18 @@ const Hero = () => {
           z-index: 0;
           pointer-events: none;
           background-image:
-            /* tirantes morados */
             repeating-linear-gradient(
               35deg,
               rgba(124,58,237,0.18) 0 1px,
               transparent 1px 90px
             ),
-            /* tirantes plomo */
             repeating-linear-gradient(
               -35deg,
               rgba(31,41,55,0.12) 0 1px,
               transparent 1px 110px
             );
           animation: braceDrift 46s linear infinite reverse;
-          mix-blend-mode: multiply; /* sutil integración sobre fondos claros */
+          mix-blend-mode: multiply;
         }
 
         /* Animaciones */
@@ -89,10 +100,8 @@ const Hero = () => {
           100% { background-position: -100px 0, 100px 0; }
         }
 
-        /* Ajuste opcional para temas oscuros/claros (no cambia estructura) */
         @media (prefers-color-scheme: light) {
           .static-hero-s3::before {
-            /* líneas un poco más suaves en claro */
             background-image:
               repeating-linear-gradient(to right, rgba(0,0,0,0.06) 0 1px, transparent 1px 40px),
               repeating-linear-gradient(to bottom, rgba(0,0,0,0.06) 0 1px, transparent 1px 40px);
@@ -102,7 +111,5 @@ const Hero = () => {
         </section>
     )
 }
-
-
 
 export default Hero;

@@ -20,8 +20,6 @@ const TeamSection = (props) => {
           try {
             const result = await api.get('/institucion/21/contenido')
             
-            console.log('🔍 Respuesta autoridades:', result.data)
-            
             const autoridadesData = result.data.autoridad || 
                                    result.data.upea_publicaciones || 
                                    result.data.linksExternoInterno || 
@@ -33,7 +31,6 @@ const TeamSection = (props) => {
             }
             
           } catch (error) {
-            console.error("❌ Error al obtener autoridades:", error);
             if (isMounted) setUsers([])
           } finally {
             if (isMounted) setLoading(false);
@@ -91,9 +88,8 @@ const TeamSection = (props) => {
                             users.map((user, index) => {
                                 const imageUrl = user.foto_autoridad?.startsWith('http') 
                                     ? user.foto_autoridad 
-                                    : `https://servicioadministrador.upea.bo/contenido/${user.foto_autoridad}`
+                                    : `https://servicioadministrador.upea.bo${user.foto_autoridad}`
                                 
-                                // 👇 Extraer URLs de redes sociales (ajusta según los campos reales)
                                 const facebookUrl = user.facebook_autoridad || user.facebook || ''
                                 const twitterUrl = user.twitter_autoridad || user.twiter_autoridad || user.twitter || ''
                                 const instagramUrl = user.instagram_autoridad || user.instagram || ''
@@ -116,7 +112,6 @@ const TeamSection = (props) => {
                                                     unoptimized={true}
                                                     priority={index < 3}
                                                     onError={(e) => {
-                                                        console.warn('❌ Error imagen:', imageUrl)
                                                         e.target.style.opacity = '0.5'
                                                     }}
                                                 />

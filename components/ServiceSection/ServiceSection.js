@@ -33,25 +33,17 @@ const ServiceSection = (props) => {
     useEffect(() => {
         const fetchOfertas = async () => {
             try {
-                // 👇 Endpoint CORRECTO - gacetaEventos
                 const result = await api.get('/institucion/21/gacetaEventos')
                 
-                console.log('🔍 Respuesta completa gacetaEventos:', result.data)
-                
-                // 👇 Extraer ofertas académicas (ajusta según la estructura)
                 const ofertasData = result.data.ofertasAcademicas || 
                                    result.data.ofertas_academicas || 
                                    result.data.recursos || 
                                    result.data.data || 
                                    (Array.isArray(result.data) ? result.data : [])
                 
-                console.log('🔍 Ofertas académicas extraídas:', ofertasData)
-                console.log('🔍 Cantidad:', Array.isArray(ofertasData) ? ofertasData.length : 'No es array')
-                
                 setOfertas(Array.isArray(ofertasData) ? ofertasData : [])
                 
             } catch (error) {
-                console.error("❌ Error al obtener ofertas académicas:", error);
                 setOfertas([])
             } finally {
                 setLoading(false);
@@ -63,7 +55,12 @@ const ServiceSection = (props) => {
     
     if (loading) {
         return (
-            <section className="Arkitek-service-section-s3 section-padding">
+            <section className="Arkitek-service-section-s3 section-padding" style={{
+                position: 'relative',
+                padding: '80px 0',
+                margin: '40px 0',
+                zIndex: 1
+            }}>
                 <div className="container text-center py-5">
                     <p>Cargando ofertas académicas...</p>
                 </div>
@@ -72,18 +69,23 @@ const ServiceSection = (props) => {
     }
 
     return (
-        <section className="Arkitek-service-section-s3 section-padding">
-            <div className="shape-1">
+        <section className="Arkitek-service-section-s3 section-padding" style={{
+            position: 'relative',
+            padding: '80px 0',
+            margin: '40px 0',
+            zIndex: 1
+        }}>
+            <div className="shape-1" style={{pointerEvents: 'none', zIndex: 0, display: 'none'}}>
                 <svg width="596" height="590" viewBox="0 0 596 590" fill="none">
                     <path d="M148 590L596 0H0L148 590Z" />
                 </svg>
             </div>
-            <div className="shape-2">
+            <div className="shape-2" style={{pointerEvents: 'none', zIndex: 0, display: 'none'}}>
                 <svg width="328" height="510" viewBox="0 0 328 510" fill="none">
                     <path d="M62 0L328 226V510H62L0 472L62 0Z" />
                 </svg>
             </div>
-            <div className="container-fluid">
+            <div className="container-fluid" style={{position: 'relative', zIndex: 2}}>
                 <div className="service-wrap">
                     <div className="service-title-left">
                         <div className="wpo-section-title">
@@ -95,34 +97,65 @@ const ServiceSection = (props) => {
                         <Slider {...settings}>
                             {ofertas.length > 0 ? (
                                 ofertas.map((oferta, index) => {
-                                    // 👇 Construir URL de imagen correctamente
-                                    const imageUrl = oferta.ofertas_imagen?.startsWith('http')
-                                        ? oferta.ofertas_imagen
-                                        : `https://servicioadministrador.upea.bo/recursos/21${oferta.ofertas_imagen}`
+                                    // 👇 CORRECCIÓN: Construir URL correctamente (SIN ESPACIOS)
+                                    let imageUrl = oferta.ofertas_imagen || oferta.imagen || oferta.imagen_url || null;
+                                    
+                                    if (imageUrl && typeof imageUrl === 'string' && !imageUrl.startsWith('http')) {
+                                        imageUrl = `https://servicioadministrador.upea.bo${imageUrl}`
+                                    }
                                     
                                     return (
-                                        <div className="col-xl-4 col-lg-4 col-md-6" key={index}>
-                                            <div className="icon">
-                                                <Image 
-                                                    src={imageUrl}
-                                                    alt={oferta.ofertas_titulo || 'Oferta académica'}
-                                                    width={500}
-                                                    height={300}
-                                                    style={{objectFit: 'cover'}}
-                                                    unoptimized={true}
-                                                    onError={() => console.warn('❌ Error imagen:', imageUrl)}
-                                                />
+                                        <div className="service-item" key={index}>
+                                            <div className="icon" style={{
+                                                position: "relative",
+                                                width: "100%",
+                                                overflow: 'hidden',
+                                                borderRadius: '16px',
+                                                marginBottom: '10px'
+                                            }}>
+                                                {imageUrl ? (
+                                                    <Image
+                                                        src={imageUrl}
+                                                        alt={oferta.ofertas_titulo || 'Oferta académica'}
+                                                        width={500}
+                                                        height={300}
+                                                        style={{objectFit: 'cover', width: '100%'}}
+                                                        unoptimized={true}
+                                                        onError={(e) => {
+                                                            // Si falla la imagen, ocultarla
+                                                            e.target.style.display = 'none'
+                                                        }}
+                                                    />
+                                                ) : (
+                                                    // Placeholder si no hay imagen
+                                                    <div style={{
+                                                        width: '100%',
+                                                        height: '300px',
+                                                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        justifyContent: 'center',
+                                                        color: 'white'
+                                                    }}>
+                                                        <div style={{textAlign: 'center', padding: '20px'}}>
+                                                            <div style={{fontSize: '48px', marginBottom: '10px'}}>📚</div>
+                                                            <div style={{fontSize: '16px', fontWeight: 'bold'}}>
+                                                                {oferta.ofertas_titulo || 'OFERTA ACADÉMICA'}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                             <div className="text">
                                                 <h2>
-                                                    <Link onClick={ClickHandler} href='#'>
-                                                        <p dangerouslySetInnerHTML={{ 
-                                                            __html: oferta.ofertas_titulo || oferta.titulo || oferta.nombre || 'Sin título' 
+                                                    <Link onClick={ClickHandler} href="#">
+                                                        <span dangerouslySetInnerHTML={{
+                                                            __html: oferta.ofertas_titulo || oferta.titulo || oferta.nombre || 'Sin título'
                                                         }} />
                                                     </Link>
                                                 </h2>
-                                                <p dangerouslySetInnerHTML={{ 
-                                                    __html: oferta.ofertas_referencia || oferta.descripcion || oferta.referencia || '' 
+                                                <div className="description" dangerouslySetInnerHTML={{
+                                                    __html: oferta.ofertas_referencia || oferta.descripcion || oferta.referencia || ''
                                                 }} />
                                             </div>
                                         </div>

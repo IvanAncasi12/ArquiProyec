@@ -7,189 +7,189 @@ import Link from "next/link";
 const menus = [
     {
         id: 1,
-        title: 'Home',
+        title: 'INICIO',
         link: '/home',
         submenu: [
             {
                 id: 11,
-                title: 'Home style 1',
+                title: 'PRINCIPAL', //HOME STYLE 1
                 link: '/home'
             },
-            {
-                id: 12,
-                title: 'Home style 2',
-                link: '/home2'
-            },
-            {
-                id: 13,
-                title: 'Home style 3',
-                link: '/home3'
-            },
-            {
-                id: 14,
-                title: 'Home style 4',
-                link: '/home4'
-            }
+        //    {
+        //     id: 12,
+        //       title: 'Home style 2',
+        //        link: '/home2'
+        //     },
+        //  {
+        //    id: 13,
+        //    title: 'Home style 3',
+        //   link: '/home3'
+        //  },
+        //  {
+        //     id: 14,
+        //   title: 'Home style 4',
+        //    link: '/home4'
+        //  }
         ]
     },
 
     {
         id: 3,
-        title: 'Pages',
+        title: 'CARRERA',
         link: '/',
         submenu: [
             {
                 id: 31,
-                title: 'About Us',
+                title: 'NOSOTROS',//about
                 link: '/about'
             },
             {
                 id: 3222,
-                title: 'Team',
+                title: 'AUTORIDADES',//team
                 link: '/team'
             },
-            {
-                id: 322,
-                title: 'Team Single',
-                link: '/team-single/Wade-Warren'
-            },
-            {
-                id: 33,
-                title: 'Pricing',
-                link: '/pricing'
-            },
-            {
-                id: 34,
-                title: 'Shop',
-                link: '/shop',
-            },
-            {
-                id: 35,
-                title: 'Shop Single',
-                link: '/product-single/Bev-Accent-Chair'
-            },
-            {
-                id: 36,
-                title: 'Cart',
-                link: '/cart'
-            },
-            {
-                id: 37,
-                title: 'Checkout',
-                link: '/checkout'
-            },
-            {
-                id: 38,
-                title: '404 Error',
-                link: '/404'
-            },
-            {
-                id: 3454,
-                title: 'FAQ',
-                link: '/faq'
-            },
-            {
-                id: 3555,
-                title: 'Login',
-                link: '/login'
-            },
-            {
-                id: 36474,
-                title: 'Register',
-                link: '/register'
-            },
+            //{
+            //    id: 322,
+            //    title: 'Team Single',
+            //    link: '/team-single/Wade-Warren'
+            //},
+            //{
+            //    id: 33,
+            //    title: 'Pricing',
+            //    link: '/pricing'
+            //},
+            //{
+            //    id: 34,
+            //    title: 'Shop',
+            //    link: '/shop',
+            //},
+            //{
+            //    id: 35,
+            //    title: 'Shop Single',
+            //    link: '/product-single/Bev-Accent-Chair'
+            //},
+            //{
+            //    id: 36,
+            //    title: 'Cart',
+            //    link: '/cart'
+            //},
+            //{
+            //    id: 37,
+            //    title: 'Checkout',
+            //    link: '/checkout'
+            //},
+            //{
+            //    id: 38,
+            //    title: '404 Error',
+            //    link: '/404'
+            //},
+            //{
+            //   id: 3454,
+            //    title: 'FAQ',
+            //    link: '/faq'
+            //},
+            //{
+            //    id: 3555,
+            //    title: 'Login',
+            //    link: '/login'
+            //},
+            //{
+            //   id: 36474,
+            //    title: 'Register',
+            //    link: '/register'
+            //},    
         ]
     },
 
     {
         id: 6,
-        title: 'Portfolio',
+        title: 'GALERIA',
         link: '/project',
         submenu: [
             {
                 id: 61,
-                title: 'Portfolio 1',
+                title: 'PROYECTOS',// portfolio 1
                 link: '/project'
             },
-            {
-                id: 62,
-                title: 'Portfolio 2',
-                link: '/project-2'
-            },
-            {
-                id: 64,
-                title: 'Portfolio single',
-                link: '/project/Furniture-&-Decor'
-            },
+        //    {
+        //        id: 62,
+        //       title: 'Portfolio 2',
+        //        link: '/project-2'
+        //    },
+        //    {
+        //        id: 64,
+        //        title: 'Portfolio single',
+        //       link: '/project/Furniture-&-Decor'
+        //    },
         ]
     },
     {
         id: 7,
-        title: 'Service',
+        title: 'ACADÉMICO',
         link: '/service',
         submenu: [
             {
                 id: 71,
-                title: 'Service 1',
+                title: 'OFERTAS ACADÉMICAS', //Servce 1
                 link: '/service'
             },
-            {
-                id: 72,
-                title: 'Service 2',
-                link: '/service-2'
-            },
+        //    {
+        //        id: 72,
+        //        title: 'Service 2',
+        //        link: '/service-2'
+        //   },
             {
                 id: 73,
-                title: 'Service 3',
+                title: 'CURSOS',//Service 3
                 link: '/service-3'
             },
-            {
-                id: 74,
-                title: 'Service Single',
-                link: '/service/Interior-Design'
-            },
+        //    {
+        //        id: 74,
+        //        title: 'Service Single',
+        //        link: '/service/Interior-Design'
+        //    },
         ]
     },
     {
         id: 5,
-        title: 'Blog',
-        link: '/blog',
-        submenu: [
-            {
-                id: 51,
-                title: 'Blog',
-                link: '/blog'
-            },
-            {
-                id: 52,
-                title: 'Blog Left sidebar',
-                link: '/blog-left-sidebar'
-            },
-            {
-                id: 53,
-                title: 'Blog full width',
-                link: '/blog-fullwidth'
-            },
-            {
-                id: 54,
-                title: 'Blog single',
-                link: '/blog-single/The-Golden-Ratio-2D-Sketch'
-            },
-            {
-                id: 55,
-                title: 'Blog single Left sidebar',
-                link: '/blog-single-left-sidebar/The-Golden-Ratio-2D-Sketch'
-            },
-            {
-                id: 56,
-                title: 'Blog single full width',
-                link: '/blog-single-fullwidth/The-Golden-Ratio-2D-Sketch'
-            },
-        ]
+        title: 'ENLACES',
+        link: '/pricing',
+        //submenu: [
+        //    {
+        //        id: 51,
+        //        title: 'ENLACES',//blog
+        //        link: '/pricing' //blog
+        //    },
+        //    {
+        //        id: 52,
+        //        title: 'Blog Left sidebar',
+        //        link: '/blog-left-sidebar'
+        //    },
+        //    {
+        //        id: 53,
+        //        title: 'Blog full width',
+        //        link: '/blog-fullwidth'
+        //    },
+        //    {
+        //        id: 54,
+        //        title: 'Blog single',
+        //        link: '/blog-single/The-Golden-Ratio-2D-Sketch'
+        //    },
+        //    {
+        //       id: 55,
+        //        title: 'Blog single Left sidebar',
+        //        link: '/blog-single-left-sidebar/The-Golden-Ratio-2D-Sketch'
+        //    },
+        //    {
+        //        id: 56,
+        //        title: 'Blog single full width',
+        //       link: '/blog-single-fullwidth/The-Golden-Ratio-2D-Sketch'
+        //    },
+    //   ]
     },
     {
         id: 88,
-        title: 'Contact',
+        title: 'CONTACTOS',
         link: '/contact',
     }
 
@@ -203,7 +203,21 @@ const MobileMenu = () => {
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
+        // cerrar menú después de navegar para que el contenido no quede tapado
+        setMenuState(false);
     }
+
+    // Controlar overflow del body cuando el menú está abierto
+    React.useEffect(() => {
+        if (menuActive) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [menuActive]);
 
     return (
         <div>
@@ -253,6 +267,20 @@ const MobileMenu = () => {
                     <span className="icon-bar last-angle"></span>
                 </button>
             </div>
+
+            <style jsx>{`
+                /* Prevenir scroll horizontal cuando el menú está abierto */
+                ${menuActive ? `
+                    html {
+                        overflow-x: hidden !important;
+                    }
+                    body {
+                        overflow-x: hidden !important;
+                        width: 100vw !important;
+                        position: fixed !important;
+                    }
+                ` : ''}
+            `}</style>
         </div>
     )
 }

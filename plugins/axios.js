@@ -1,9 +1,8 @@
-// plugins/axios.js
 import axios from 'axios'
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://servicioadministrador.upea.bo/api/v2',
-  timeout: 15000,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
     'Accept': '*aplication/json*'
@@ -14,17 +13,10 @@ api.interceptors.request.use(config => {
   const token = process.env.NEXT_PUBLIC_API_TOKEN
   const origin = process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:5173'
   
-  // Agregar token si existe
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }
-  
-  // Agregar Origin (necesario para CORS)
   config.headers.Origin = origin
-  
-  // ❌ REMOVIDO: User-Agent (los navegadores no lo permiten)
-  // El navegador automáticamente envía su propio User-Agent
-  
   return config
 })
 

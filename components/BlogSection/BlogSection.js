@@ -19,19 +19,15 @@ const BlogSection = (props) => {
             try {
                 const result = await api.get('/institucion/21/gacetaEventos')
                 
-                console.log('🔍 Respuesta eventos:', result.data)
-                
                 const eventosData = result.data.upea_evento || 
                                    result.data.upea_gaceta_universitaria || 
                                    result.data.gacetaEventos || 
                                    result.data.eventos || 
                                    []
                 
-                console.log('🔍 Eventos extraídos:', eventosData)
                 setUsers(Array.isArray(eventosData) ? eventosData : [])
                 
             } catch (error) {
-                console.error("❌ Error al obtener eventos:", error);
                 setUsers([])
             } finally {
                 setLoading(false);
@@ -66,7 +62,7 @@ const BlogSection = (props) => {
                                 {users.length > 0 && users.map((user, index) => {
                                     const imageUrl = user.evento_imagen?.startsWith('http') 
                                         ? user.evento_imagen 
-                                        : `https://servicioadministrador.upea.bo/contenido/21${user.evento_imagen}`
+                                        : `https://servicioadministrador.upea.bo/contenido/21/${user.evento_imagen}`
                                     
                                     return (
                                         <div className="grid" key={index} style={{width: '100%', height: 'auto'}}>
@@ -78,9 +74,6 @@ const BlogSection = (props) => {
                                                         fill
                                                         style={{objectFit: 'cover'}}
                                                         unoptimized={true}
-                                                        onError={() => {
-                                                            console.warn('❌ Error cargando imagen:', imageUrl)
-                                                        }}
                                                     />
                                                 </div>
                                                 <div className="blog-content">

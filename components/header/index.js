@@ -22,7 +22,28 @@ const Header = (props) => {
     const { carts } = props;
 
     return (
-        <header id="header" className={props.topbarClass}>
+        <>
+            <style jsx>{`
+                .logo-animado {
+                    animation: flip-horizontal 5s ease-in-out infinite;
+                    transform-style: preserve-3d;
+                    display: inline-block;
+                }
+
+                @keyframes flip-horizontal {
+                    0% {
+                        transform: perspective(400px) rotateY(0deg);
+                    }
+                    100% {
+                        transform: perspective(400px) rotateY(360deg);
+                    }
+                }
+
+                .logo-animado:hover {
+                    animation-play-state: paused;
+                }
+            `}</style>
+            <header id="header" className={props.topbarClass}>
             <div className={`wpo-site-header ${props.hclass}`}>
                 <nav className="navigation navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid">
@@ -35,7 +56,10 @@ const Header = (props) => {
                             <div className="col-lg-2 col-md-6 col-6">
                                 <div className="navbar-header">
                                     <Link className="navbar-brand" href="/">
-                                        <Image style={{width: '100px'}} src={Logo} alt="logo" />
+                                        <div className="logo-animado">
+                                            <Image style={
+                                                {width: '100px'}} src={Logo} alt="logo"/>
+                                        </div>
                                     </Link>
                                 </div>
                             </div>
@@ -136,6 +160,7 @@ const Header = (props) => {
                 </nav>
             </div>
         </header>
+        </>
     )
 }
 

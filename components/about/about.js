@@ -45,20 +45,21 @@ const About = (props) => {
         <section className="Arkitek-about-section-s4 section-padding">
             <div className="container">
                 <div className="row">
-                {institucion && (               
                     <div className="col-lg-5 col-12">
                         <div className="about-text">
                             <span>SOBRE LA CARRERA</span>
                             <h2>ARQUITECTURA</h2>
-                            {/* 👇 Verifica el nombre del campo según la nueva respuesta */}
-                            <p dangerouslySetInnerHTML={{ 
-                                __html: institucion.institucion_sobre_ins || institucion.sobre_carrera || institucion.descripcion || '' 
-                            }} />
+                            {/* Renderizado condicional del contenido pero mantener estructura de columnas */}
+                            {institucion ? (
+                                <p dangerouslySetInnerHTML={{
+                                    __html: institucion.institucion_sobre_ins || institucion.sobre_carrera || institucion.descripcion || ''
+                                }} />
+                            ) : (
+                                <p>Descripción no disponible</p>
+                            )}
                             <Link onClick={ClickHandler} href="/about" className="theme-btn">MÁS</Link>
                         </div>
                     </div>
-               
-                )}
                     <div className="col-lg-7 col-12 order-2 ">
                         <div className="about-right-content">
                             <div className="info">
