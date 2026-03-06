@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://servicioadministrador.upea.bo/api/v2',
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://servicioadministrador.upea.bo/api/v2', // Sin espacios
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
-    'Accept': '*aplication/json*'
+    'Accept': 'application/json' // Corregido: era '*aplication/json*'
   }
 })
 

@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import Logo from '/public/images/logo-arquitectura.png'
-// import Services from '../../api/Services'; // 👈 Comentado si no se usa
+import Services from '../../api/Services';
 import Image from 'next/image';
-import api from '@/plugins/axios' // 👈 Importamos axios configurado
+import api from '@/plugins/axios'
 
 const Footer2 = (props) => {
 
@@ -18,19 +18,8 @@ const Footer2 = (props) => {
     useEffect(() => {
         const fetchInstitucion = async () => {
             try {
-                // 👇 Usamos el nuevo servicio con axios configurado
-                // Endpoint probable para datos generales de la institución
                 const response = await api.get('/institucionesPrincipal/21')
-                
-                // 👇 Ajusta según la estructura real de la respuesta
-                // console.log('Datos institución footer:', response.data) // 👈 Descomenta para depurar
-                
-                // Si la respuesta viene directa:
                 setInstitucion(response.data)
-                
-                // Si viene anidada (ej: response.data.data o response.data.institucion):
-                // setInstitucion(response.data.data || response.data.institucion)
-                
             } catch (error) {
                 console.error("❌ Error al obtener datos de la institución:", error);
             } finally {
@@ -40,8 +29,6 @@ const Footer2 = (props) => {
 
         fetchInstitucion();
     }, []);
-    
-    // Estado de carga (opcional, para mejor UX)
     if (loading) {
         return (
             <footer className="wpo-site-footer-s2">
@@ -76,7 +63,6 @@ const Footer2 = (props) => {
                                     </div>
                                     <div className="contact-ft">
                                         <ul>
-                                            {/* 👇 Verifica los nombres de campos según la nueva respuesta */}
                                             <li>
                                                 <i className="fi flaticon-email"></i>
                                                 {institucion.institucion_correo1 || institucion.correo || ''}

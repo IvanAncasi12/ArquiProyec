@@ -4,7 +4,6 @@ import MobileMenu from '../MobileMenu/MobileMenu'
 import { totalPrice } from "../../utils";
 import { connect } from "react-redux";
 import { removeFromCart } from "../../store/actions/action";
-import Logo from '/public/images/logo-arquitectura.png'
 import Image from 'next/image';
 
 const Header = (props) => {
@@ -57,8 +56,13 @@ const Header = (props) => {
                                 <div className="navbar-header">
                                     <Link className="navbar-brand" href="/">
                                         <div className="logo-animado">
-                                            <Image style={
-                                                {width: '100px'}} src={Logo} alt="logo"/>
+                                            <Image 
+                                                src="/images/logo-arquitectura.png"
+                                                alt="logo"
+                                                width={100}
+                                                height={100}
+                                                style={{ width: '100px', height: 'auto' }}
+                                            />
                                         </div>
                                     </Link>
                                 </div>
@@ -73,7 +77,7 @@ const Header = (props) => {
                                         <li className="menu-item-has-children">
                                             <Link onClick={ClickHandler} href="/">Carrera</Link>
                                             <ul className="sub-menu">
-                                                <li><Link onClick={ClickHandler} href="/about">Nosotros</Link></li>
+                                                <li><Link onClick={ClickHandler} href="/about3">Nosotros</Link></li>
                                                 <li><Link onClick={ClickHandler} href="/team">Autoridades</Link></li>
                                             </ul>
                                         </li>

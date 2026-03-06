@@ -122,12 +122,10 @@ const ServiceSection = (props) => {
                                                         style={{objectFit: 'cover', width: '100%'}}
                                                         unoptimized={true}
                                                         onError={(e) => {
-                                                            // Si falla la imagen, ocultarla
                                                             e.target.style.display = 'none'
                                                         }}
                                                     />
                                                 ) : (
-                                                    // Placeholder si no hay imagen
                                                     <div style={{
                                                         width: '100%',
                                                         height: '300px',

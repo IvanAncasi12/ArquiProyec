@@ -49,7 +49,6 @@ const About = (props) => {
                         <div className="about-text">
                             <span>SOBRE LA CARRERA</span>
                             <h2>ARQUITECTURA</h2>
-                            {/* Renderizado condicional del contenido pero mantener estructura de columnas */}
                             {institucion ? (
                                 <p dangerouslySetInnerHTML={{
                                     __html: institucion.institucion_sobre_ins || institucion.sobre_carrera || institucion.descripcion || ''

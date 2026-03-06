@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-// import blogs from '../../api/blogs' // 👈 Comentado o eliminado si no se usa
 import SectionTitle from '../SectionTitle/SectionTitle'
 import Link from 'next/link'
 import Image from 'next/image'
-import api from '@/plugins/axios' // 👈 Importamos axios configurado
+import api from '@/plugins/axios'
 
 const BlogSection2 = (props) => {
 
@@ -18,13 +17,9 @@ const BlogSection2 = (props) => {
     useEffect(() => {
         const fetchCursos = async () => {
           try {
-        
             const response = await api.get('/institucion/21/gacetaEventos')
-            
-            console.log('Respuesta cursos:', response.data)
             setCursos(response.data)
           } catch (error) {
-            console.error("❌ Error al obtener cursos:", error);
           } finally {
             setLoading(false)
           }
@@ -62,7 +57,7 @@ const BlogSection2 = (props) => {
                                                 <Image 
                                                     src={curso.det_img_portada?.startsWith('http') 
                                                         ? curso.det_img_portada 
-                                                        : `https://servicioadministrador.upea.bo/api/v2/institucion/21/gacetaEventos${curso.det_img_portada}`
+                                                        : `https://servicioadministrador.upea.bo${curso.det_img_portada}`
                                                     } 
                                                     alt={curso.det_titulo || 'Curso'} 
                                                     width={500} 

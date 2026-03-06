@@ -203,11 +203,8 @@ const MobileMenu = () => {
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
-        // cerrar menú después de navegar para que el contenido no quede tapado
         setMenuState(false);
     }
-
-    // Controlar overflow del body cuando el menú está abierto
     React.useEffect(() => {
         if (menuActive) {
             document.body.style.overflow = 'hidden';

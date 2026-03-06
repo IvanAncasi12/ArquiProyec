@@ -20,7 +20,6 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
-             {/* Fondo de líneas estructurales animadas (sin modificar estructura) */}
       <style jsx>{`
         .static-hero-s3 {
           position: relative;
