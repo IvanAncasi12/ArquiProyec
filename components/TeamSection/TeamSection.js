@@ -87,7 +87,7 @@ const TeamSection = (props) => {
                         {users.length > 0 ? (
                             users.map((user, index) => {
                                const imageUrl = user.foto_autoridad?.startsWith('http') 
-                                 ? user.foto_autoridad : `https://servicioadministrador.upea.bo${user.foto_autoridad}`
+                                 ? user.foto_autoridad : `https://apiadministrador.upea.bo${user.foto_autoridad}`
                                 
                                 const facebookUrl = user.facebook_autoridad || user.facebook || ''
                                 const twitterUrl = user.twitter_autoridad || user.twiter_autoridad || user.twitter || ''

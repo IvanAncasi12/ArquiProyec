@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://servicioadministrador.upea.bo/api/v2',
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL || 'https://apiadministrador.upea.bo/api/v2',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json',
@@ -11,8 +11,6 @@ const api = axios.create({
 
 api.interceptors.request.use(config => {
   const token = process.env.NEXT_PUBLIC_API_TOKEN
-  const origin = process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:5173'
-  
   if (token) {
     config.headers.Authorization = `Bearer ${token}`
   }

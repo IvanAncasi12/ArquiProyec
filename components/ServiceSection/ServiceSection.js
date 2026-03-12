@@ -101,7 +101,7 @@ const ServiceSection = (props) => {
                                     let imageUrl = oferta.ofertas_imagen || oferta.imagen || oferta.imagen_url || null;
                                     
                                     if (imageUrl && typeof imageUrl === 'string' && !imageUrl.startsWith('http')) {
-                                        imageUrl = `https://servicioadministrador.upea.bo${imageUrl}`
+                                        imageUrl = `https://apiadministrador.upea.bo${imageUrl}`
                                     }
                                     
                                     return (

@@ -74,7 +74,7 @@ const ServiceSection3 = () => {
 
                             let imageUrl = curso.det_imagen || curso.det_imagen_curso || curso.imagen || curso.imagen_url || null;
                             if (imageUrl && typeof imageUrl === 'string' && !imageUrl.startsWith('http')) {
-                                imageUrl = `https://servicioadministrador.upea.bo${imageUrl}`
+                                imageUrl = `https://apiadministrador.upea.bo${imageUrl}`
                             }
 
                             return (

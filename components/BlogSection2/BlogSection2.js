@@ -57,7 +57,7 @@ const BlogSection2 = (props) => {
                                                 <Image 
                                                     src={curso.det_img_portada?.startsWith('http') 
                                                         ? curso.det_img_portada 
-                                                        : `https://servicioadministrador.upea.bo${curso.det_img_portada}`
+                                                        : `https://apiadministrador.upea.bo${curso.det_img_portada}`
                                                     } 
                                                     alt={curso.det_titulo || 'Curso'} 
                                                     width={500} 

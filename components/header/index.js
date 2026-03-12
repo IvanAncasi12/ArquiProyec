@@ -45,7 +45,7 @@ const Header = (props) => {
         if (logoPath && logoPath.trim() !== '') {
           const fullLogoUrl = logoPath.startsWith('http') 
             ? logoPath 
-            : `https://servicioadministrador.upea.bo${logoPath}`
+            : `https://apiadministrador.upea.bo${logoPath}`
           
           setLogoUrl(fullLogoUrl)
         }
@@ -177,7 +177,7 @@ const Header = (props) => {
                                     <div className="header-search-form-wrapper">
                                         <div className="cart-search-contact">
                                             <a 
-                                                href="https://apiadministrador.upea.bo/sign-in" 
+                                                href="https://servicioadministrador.upea.bo/sign-in" 
                                                 className="btn btn-login me-2"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
