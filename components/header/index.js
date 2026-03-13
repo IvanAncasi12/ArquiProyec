@@ -165,10 +165,20 @@ const Header = (props) => {
                                             <ul className="sub-menu">
                                                 <li><Link onClick={ClickHandler} href="/service">Ofertas Académicas</Link></li>
                                                 <li><Link onClick={ClickHandler} href="/service-3">Cursos</Link></li>
+                                                <li><Link onClick={ClickHandler} href="/gaceta">Gaceta</Link></li>
+                                                <li><Link onClick={ClickHandler} href="/serviciosArqui">Servicios</Link></li>
                                             </ul>
                                         </li>
                                         <li><Link onClick={ClickHandler} href="/pricing">Enlaces</Link></li>
                                         <li><Link onClick={ClickHandler} href="/contact">Contáctos</Link></li>
+                                          <li className="menu-item-has-children">
+                                            <Link onClick={ClickHandler} href="/">Comunicados</Link>
+                                            <ul className="sub-menu">
+                                                <li><Link onClick={ClickHandler} href="/avisos">Avisos</Link></li>
+                                                <li><Link onClick={ClickHandler} href="/comunicados">Comunicados</Link></li>
+                                                 <li><Link onClick={ClickHandler} href="/convocato">Convocatorias</Link></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

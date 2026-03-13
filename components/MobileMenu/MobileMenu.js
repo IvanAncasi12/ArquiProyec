@@ -133,21 +133,21 @@ const menus = [
                 title: 'OFERTAS ACADÉMICAS', //Servce 1
                 link: '/service'
             },
-        //    {
-        //        id: 72,
-        //        title: 'Service 2',
-        //        link: '/service-2'
-        //   },
+            {
+                id: 72,
+                title: 'GACETA',//Service 2
+                link: '/gaceta'//Service 2
+           },
             {
                 id: 73,
                 title: 'CURSOS',//Service 3
                 link: '/service-3'
             },
-        //    {
-        //        id: 74,
-        //        title: 'Service Single',
-        //        link: '/service/Interior-Design'
-        //    },
+             {
+                id: 74,
+                title: 'SERVICIOS', //service single
+                link: '/serviciosArqui' //service single
+            },
         ]
     },
     {
@@ -191,7 +191,29 @@ const menus = [
         id: 88,
         title: 'CONTACTOS',
         link: '/contact',
-    }
+    },
+    {
+        id: 51,
+        title: 'COMUNICADOS',
+        link: '/Comunicados',
+        submenu: [
+            {
+                id: 104,
+                title: 'AVISOS', //Servce 1
+                link: '/avisos' //Service 1
+            },
+            {
+                id: 105,
+                title: 'COMUNICADOS',//Service 2
+                link: '/comunicados'//Service 2
+           },
+            {
+                id: 106,
+                title: 'COVOCATORIAS',//Service 3
+                link: '/convocato' //Service 3
+            },
+        ]
+    },
 
 
 ]

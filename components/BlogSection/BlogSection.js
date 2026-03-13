@@ -62,7 +62,7 @@ const BlogSection = (props) => {
                                 {users.length > 0 && users.map((user, index) => {
                                     const imageUrl = user.evento_imagen?.startsWith('http') 
                                         ? user.evento_imagen 
-                                        : `https://apiadministrador.upea.bo/contenido/21/${user.evento_imagen}`
+                                        : `https://apiadministrador.upea.bo${user.evento_imagen}`
                                     
                                     return (
                                         <div className="grid" key={index} style={{width: '100%', height: 'auto'}}>

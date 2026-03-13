@@ -6,7 +6,7 @@ import Services from '../../api/Services';
 import Image from 'next/image';
 import api from '@/plugins/axios'
 
-const Footer2 = (props) => {
+const   Footer2 = (props) => {
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
